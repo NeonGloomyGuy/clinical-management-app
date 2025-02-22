@@ -1,0 +1,73 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+#login_container {
+    width: 15%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* MAIN PAGE */
+
+#menu_wrapper {
+    height: 100vh;
+    width: 4%;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.7s ease;
+}
+
+#menu_wrapper.expanded {
+    width: 13%;
+}
+
+#button_menu {
+    width: 100%;
+    height: 11.3%;
+    position: relative;
+    left: 0;
+    transition: width 0.7s ease;
+}
+
+#menu{
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid black;
+    position: relative;
+    left: -100%;
+
+    transition: left 0.7s ease;
+}
+
+#menu.open {
+    left: 0;
+}
+
+#hospital_name {
+    height: 10%;
+    width: 96%;
+    border: 1px solid black;
+}
+
+/* BD */
+
+.table-bd {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table-bd th, .table-bd td {
+    border: 1px solid black;
+    padding: 1%;
+    text-align: left;
+    white-space: nowrap;
+}
