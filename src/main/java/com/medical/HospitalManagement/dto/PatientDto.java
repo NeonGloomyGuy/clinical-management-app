@@ -1,8 +1,6 @@
 package com.medical.HospitalManagement.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,18 +8,24 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
-@Document(collection = "users")
+@Document(collection = "GeneralInfo")
 public class PatientDto {
 
     @Id
     private String id;
 
-    @Field("name")
-    private String name;
+    @Field("nombre")
+    private String nombre;
 
-    @Field("email")
-    private String email;
+    @Field("edad")
+    private String edad;
 
-    @Field("password")
-    private String password;
+    @Field("tipo_sanguineo")
+    private String tipo_sanguineo;
+
+    @Field("peso")
+    private String peso;
+
+    @Field("estatura")
+    private String estatura;
 }

@@ -91,9 +91,6 @@ iconPlusAllergie.addEventListener('click', () => {
 });
 
 /* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT */
-
-function addPatientData () {
-
      //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
      //var numOfAllergies = allergiesContainers.length;
 
@@ -102,7 +99,7 @@ function addPatientData () {
      //for(var i = 0; i < numOfAllergies; i++) {
        // allergies.push(allergiesContainers[i].textContent.trim());
      //}
-
+document.getElementById('savePatient').addEventListener('click', () => {
     var jsonData = JSON.stringify({
         nombre: document.getElementById('nombre').value,
         edad: parseInt(document.getElementById('edad').value),
@@ -112,24 +109,27 @@ function addPatientData () {
 
         //alergias: allergies
     });
+     fetch("http://localhost:8080/demo/api/v1/savePatient", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: jsonData
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("No se enviaron los datos");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Datos enviados con éxito:", data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+});
 
-    fetch("adsad", {
-        method: 'POST',
-        body: jsonData
-    })
-    .then((response) => {
-        if(!response.ok) {
-            throw new Error("No se enviaron los datos");
-        }
-        return response.json();
-    })
-
-
-
-
-    console.log(jsonData);
-
-}
 
 
 
