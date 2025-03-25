@@ -94,14 +94,14 @@ iconPlusAllergie.addEventListener('click', () => {
 
 function addPatientData () {
 
-     var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
-     var numOfAllergies = allergiesContainers.length;
+     //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
+     //var numOfAllergies = allergiesContainers.length;
 
-     var allergies = [];
+     //var allergies = [];
 
-     for(var i = 0; i < numOfAllergies; i++) {
-        allergies.push(allergiesContainers[i].textContent.trim());
-     }
+     //for(var i = 0; i < numOfAllergies; i++) {
+       // allergies.push(allergiesContainers[i].textContent.trim());
+     //}
 
     var jsonData = JSON.stringify({
         nombre: document.getElementById('nombre').value,
@@ -110,8 +110,22 @@ function addPatientData () {
         peso: parseFloat(document.getElementById('peso').value),
         estatura: parseFloat(document.getElementById('estatura').value),
 
-        alergias: allergies
+        //alergias: allergies
     });
+
+    fetch("adsad", {
+        method: 'POST',
+        body: jsonData
+    })
+    .then((response) => {
+        if(!response.ok) {
+            throw new Error("No se enviaron los datos");
+        }
+        return response.json();
+    })
+
+
+
 
     console.log(jsonData);
 
