@@ -5,79 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+DE+Grund:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body style="display: flex;">
-    
-    <div id="menu_wrapper">
-        <button id="button_menu">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
-        </button>
-        
-        <div id="menu">
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-            </ul>
-        </div>
+<body>
+
+    <!-- HEADER -->
+    <div id="header">
+
+        <img class="header-menu-button" src="imgs/headerMenu.png">
+        <span>Hospital Shoro</span>
+
     </div>
 
-    <table class="table-bd">
-        <tr>
-            <th>Paciente</th>
-            <th>Edad</th>
-            <th>Blood</th>
-            <th>Weight</th>
-            <th>Height</th>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Shoro</td>
-            <td>10</td>
-        </tr>
-    </table>
-    
-    <!-- <div id="hospital_name">Hospital shoro</div> -->
-    <!-- <input type="text" id="name">
-    <input type="text" id="age">
-    <input type="text" id="height">
-    <input type="text" id="weight">
-    <input type="text" id="blood_type"> -->
+    <!-- CONTENT -->
+    <div class="content-container">
 
-    <script src="js.js"></script>
+        <!-- MANAGERS -->
+
+        <div class="header-menu">
+
+            <div class="allergies-manager-button">Alergias</div>
+
+        </div>
+
+        <div id="allergies_manager">
+            <div>Alergia a la lazaro</div>
+        </div>
+
+        <!-- BASE DE DATOS -->
+        <div class="bd-container">
+
+            <div class="search-container">
+
+                <div class="search-only-wrapper">
+                    <svg id="search_button" class="w-6 h-6 text-gray-800 dark:text-white stroke-gray-800 hover:stroke-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="lightgray" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                    </svg>
+
+                    <input type="text" id="search_bar">
+                </div>
+
+                <img class="add-patient-logo" src="imgs/heart.png">
+            </div>
+
+            <table class="table-bd">
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Edad</th>
+                        <th>Tipo</th>
+                        <th>Peso</th>
+                        <th>Estatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shoro <span><img><img><img></span></td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td>Shoro</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- AGREGAR PACIENTE (EXPEDIENTE) -->
+        <div class="add-patient-container">
+
+
+
+            <div class="add-patient-principal-info">
+                <h1>Informacion Principal</h1>
+
+                Nombre <input type="text" id="nombre">
+                Edad <input type="text" id="edad">
+                Tipo Sanguineo <input type="text" id="tipo_sanguineo">
+                Peso <input type="text" id="peso">
+                Estatura <input type="text" id="estatura">
+
+                <button onclick="addPatientData()">Crear Paciente</button>
+            </div>
+
+
+
+            <div class="add-patient-allergies">
+                <div class="dropdown-menu-allergies">
+                    <div class="dropdown-menu-allergies-button">Selecciona una Alergia  ></div>
+                    <div id="dropdown_menu_allergies_content">
+                        <div id="allergie_1">popo <img id="plus_allergie" src="imgs/addAllergie.png"></div>
+                        <div id="allergie_2">pipi <img src="imgs/addAllergie.png"></div>
+                    </div>
+                </div>
+
+                <div id="selected_allergies">
+
+                </div>
+            </div>
+
+            <hr style="width: 0.5px; height: 85%; background-color: white;position: absolute; left: 50%; top: 6.5%;">
+
+        </div>
+
+        <!-- RECETA MEDICA -->
+        <div class="receta-medica">
+
+
+        </div>
+
+        <!-- MENU -->
+        <div class="menu">
+
+            <img id="expedientes-button-menu" src="imgs/expediente.png">
+            <img id=database-button-menu src="imgs/database.png">
+
+            <div class="hover-spans">
+                <span>Expedientes</span>
+                <span>Base de datos</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="jsMain.js"></script>
 
 </body>
 </html>

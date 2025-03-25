@@ -9,9 +9,9 @@ public class FrontEnd extends Application {
     @Override
     public void start(Stage primaryStage) {
         WebView webView = new WebView();
-        webView.getEngine().load("http://localhost:8080/index.html");
+        webView.getEngine().load("http://localhost:8080/main.html");
 
-        Scene scene = new Scene(webView, 800, 600);
+        Scene scene = new Scene(webView, 1200, 600);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Hybrid Desktop App");
         primaryStage.show();
