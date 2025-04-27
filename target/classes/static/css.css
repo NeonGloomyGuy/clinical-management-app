@@ -1,0 +1,373 @@
+* {
+    background-color: rgba(43,45,48,255);
+    border-color: white !important;
+    font-family: Andika !important;
+    color: rgb(232, 232, 232);
+    scroll-behavior: smooth;
+    scrollbar-color: rgb(87, 90, 96) rgba(43,45,48,255);
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#login_container {
+    width: 15%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MAIN PAGE */
+
+#header {
+    width: auto;
+    height: 8%;
+    border-bottom: 2px solid rgb(87, 90, 96) !important;
+    position: relative;
+    overflow: hidden;
+    align-content: center;
+    text-align: center;
+    color: black;
+    font-size: 1.7em;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#header img {
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 1.2%;
+    transform: translateY(-50%);
+}
+#header img:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+.header-menu {
+    width: 15%;
+    height: 40%;
+    border: 1.5px solid rgb(84, 86, 89) !important;
+    border-radius: 9px;
+    display: none;
+    position: absolute;
+    top: -0.2%;
+    left: 1.2%;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.allergies-manager-button {
+    padding: 1% 5% 2% 5%;
+}
+
+.allergies-manager-button:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+    cursor: default;
+}
+
+#allergies_manager {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+#header span {
+    background-color: transparent;
+    z-index: 1;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(109, 122, 224, 0.4), transparent 100%);
+    z-index: -1;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.content-container {
+    height: 92%;
+    display: flex;
+    position: relative;
+}
+
+.menu {
+    width: 4%;
+    height: 100%;
+    background-color: rgb(54, 57, 64);
+    box-sizing: border-box;
+    margin-left: 0.5%;
+    padding: 1% 0 0 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu img {
+    width: 27px;
+    height: 27px;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 5px 4px 4.5px 4px;
+}
+
+.menu img:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+}
+
+.menu .hover-spans {
+    width: 9.5%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+    position: absolute;
+    top: 2%;
+    right: 4.5%;
+    font-size: 0.8em;
+}
+
+.menu .hover-spans span {
+    width: auto;
+    height: 27px;
+    background-color: rgb(54, 57, 64);
+    border-radius: 4px;
+    padding: 5px 12px 4.5px 12px;
+    display: none;
+    align-content: center;
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+.menu img:hover ~ .hover-spans span {
+    display: inline;
+}
+
+.menu img:nth-child(1):hover ~ .hover-spans span:nth-child(1) {
+    visibility: visible;
+}
+
+.menu img:nth-child(2):hover ~ .hover-spans span:nth-child(2) {
+    visibility: visible;
+}
+
+/* BD */
+
+.bd-container {
+    width: 96%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-right: 0.5%;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.search-container {
+    width: 100%;
+    height: 10%;
+    padding: 0 1% 0 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 11px;
+    position: sticky;
+    top: 0;
+    font-size: 5em;
+}
+
+.search-only-wrapper {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.search-only-wrapper svg {
+    border-radius: 50%;
+    padding: 1px;
+}
+
+.search-only-wrapper svg:hover {
+    cursor: pointer;
+}
+
+.search-only-wrapper svg path {
+    transition: stroke 0.2s ease-in-out;
+}
+
+.search-only-wrapper svg:hover path {
+    stroke: black;
+    cursor: pointer;
+}
+
+#search_bar {
+    width: 50%;
+    height: 15%;
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+}
+
+.add-patient-logo {
+    width: 45x;
+    height: 45px;
+    margin-top: 0.5%;
+    margin-right: 1.5%;
+}
+
+.add-patient-logo:hover {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.table-bd {
+    height: 50%;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-collapse: separate;
+}
+
+.table-bd thead th, .table-bd tbody td {
+    box-sizing: border-box;
+    padding: 10px 14px 10px 14px;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.table-bd thead th {
+    width: 20%;
+    background-color: rgb(109, 122, 224);
+    font-size: 1.2em !important;
+    color: black;
+}
+
+.table-bd thead th:nth-child(5) {
+    border-top-right-radius: 10px;
+}
+
+.table-bd tbody tr:nth-child(even) td {
+    background-color: rgb(87, 90, 96);
+}
+
+/* EXPEDIENTE */
+
+.add-patient-container {
+    width: 96%;
+    height: 100%;
+    padding: 4% 3% 4% 3%;
+    display: none;
+    grid-template-rows: auto auto;
+    grid-template-columns: 40% 40%;
+    grid-column-gap: 20%;
+    overflow: auto;
+}
+
+.add-patient-principal-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.add-patient-container h1 {
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+
+.add-patient-principal-info input {
+    width: 96%;
+    height: 5%;
+    margin-bottom: 5px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.dropdown-menu-allergies {
+    margin-bottom: 8%;
+}
+
+.dropdown-menu-allergies-button {
+    border: 1px solid black;
+    padding: 10px;
+    display: inline-block;
+}
+
+.dropdown-menu-allergies-button:hover {
+    cursor: default;
+}
+
+#dropdown_menu_allergies_content {
+    display: none;
+}
+
+#dropdown_menu_allergies_content div {
+    width: 50%;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+#dropdown_menu_allergies_content div:hover {
+    background-color: rgb(54, 57, 64);
+}
+
+#dropdown_menu_allergies_content div img {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    margin: auto;
+    position: absolute;
+    right: 2%;
+}
+
+#dropdown_menu_allergies_content div img:hover {
+    cursor: pointer;
+}
+
+#selected_allergies {
+    width: 80%;
+    height: 50%;
+    border: 1px solid white;
+}
+
+
+
+
+
+
+
+
+
+
