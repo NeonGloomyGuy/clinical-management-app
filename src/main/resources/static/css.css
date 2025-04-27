@@ -1,10 +1,6 @@
 * {
-    background-color: rgba(43,45,48,255);
-    border-color: white !important;
-    font-family: Andika !important;
-    color: rgb(232, 232, 232);
+    background-color: #F7FAF7;
     scroll-behavior: smooth;
-    scrollbar-color: rgb(87, 90, 96) rgba(43,45,48,255);
 }
 
 body {
@@ -12,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: montserrat;
 }
 
 #login_container {
@@ -25,19 +22,61 @@ body {
 
 #header {
     width: auto;
-    height: 8%;
-    border-bottom: 2px solid rgb(87, 90, 96) !important;
+    height: 7%;
+    background-color: #F7FAF7;
+    border-bottom: 1.5px solid rgb(237, 234, 234);
+    padding-left: 1.2%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
     overflow: hidden;
-    align-content: center;
-    text-align: center;
+    font-size: 1.57em;
     color: black;
-    font-size: 1.7em;
-    font-weight: bold;
     z-index: 10;
 }
 
+#header::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 100%;
+    /* background: linear-gradient(to right, #AFDCEC, #F7FAF7); */
+    z-index: -1;
+    opacity: 1;
+    pointer-events: none;
+}
+
 #header img {
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    margin-right: 0.2%;
+}
+
+#header span {
+    background-color: transparent;
+    margin-bottom: ;
+    position: relative;
+}
+
+#header span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;  
+    width: 100%;
+    height: 2.5px;  
+    background-color: #b9cddb;  
+    box-shadow: 0 0 8px #b9cddb;  
+    border-radius: 2px;
+}
+
+
+#header .header-menu-button {
     width: 25px;
     height: 25px;
     background-color: transparent;
@@ -45,11 +84,13 @@ body {
     padding: 5px;
     position: absolute;
     top: 50%;
-    left: 1.2%;
+    right: 0.7%;
     transform: translateY(-50%);
+    transition: background-color 0.2s ease-in-out;
 }
-#header img:hover {
-    background-color: rgb(255, 255, 255, 0.1);
+
+#header .header-menu-button:hover {
+    background-color: rgb(231, 227, 227);
 }
 
 .header-menu {
@@ -75,50 +116,165 @@ body {
 }
 
 #allergies_manager {
+    width: 30%;
+    height: 60%;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(84, 86, 89) !important;
+    border-radius: 2px;
+    padding: 0;
     display: none;
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 100;
 }
 
+.allergies-manager-search-ctn {
+    width: 100%;
+    height: 13%;
+    background-color: rgb(38, 39, 41);
+    box-sizing: border-box;
+    padding: 0 3% 0 3.5%;
+    display: flex;
+    align-items: center;
+}
 
-
-
-#header span {
+.allergies-manager-search-ctn img {
+    width: 25px;
+    height: 25px;
     background-color: transparent;
-    z-index: 1;
+    margin-right: 3%;
 }
 
-#header::before {
-    content: "";
+.allergies-manager-search-ctn input {
+    width: 88%;
+    height: 50%;
+    background-color: rgb(38, 39, 41);
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+#allergies_manager div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 3% 5px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#allergies_manager div:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+    cursor: default;
+}
+
+#allergies_manager div img{
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+}
+
+#allergies_manager div img:hover {
+    cursor: pointer;
+}
+
+.add-allergie-in-manager-button {
+    width: 100%;
+    background-color: rgb(43,45,48);
+    box-sizing: border-box;
+    padding: 5px 3% 5px 3%;
+    display: inline-block;
+    z-index: 10;
+}
+
+.add-allergie-in-manager-button:hover {
+    cursor: pointer;
+}
+
+#add_allergie_in_manager {
+    width: 30%;
+    height: 15%;
+    border: 1.5px solid rgb(84, 86, 89);
+    border-radius: 2px;
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 140%;
+    display: none;
+    z-index: 10;
+}
+
+.title-aaim {
+    width: 100%;
+    height: 40%;
+    box-sizing: border-box;
+    border-bottom: 1.5px solid rgb(84, 86, 89);
+    padding: 5px 3% 5px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-aaim img {
+    width: 20px;
+    height: 20px;
+}
+
+.title-aaim img:hover {
+    cursor: pointer;
+}
+
+.wrap-aaim-add-input {
+    width: 100%;
+    height: 60%;
+    box-sizing: border-box;
+    padding: 5px 3% 5px 3%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wrap-aaim-add-input input{
+    width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+    border: 2px solid rgb(84, 86, 89);
+    border-radius: 4px;
+}
+.wrap-aaim-add-input div{
+    width: 20%;
     height: 100%;
-    background: radial-gradient(circle, rgba(109, 122, 224, 0.4), transparent 100%);
-    z-index: -1;
-    opacity: 1;
-    pointer-events: none;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap-aaim-add-input div button{
+    width: 90%;
+    height: 80%;
+    border: 2px solid rgb(84, 86, 89);
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .content-container {
-    height: 92%;
+    height: 93%;
     display: flex;
     position: relative;
 }
 
 .menu {
-    width: 4%;
-    height: 100%;
-    background-color: rgb(54, 57, 64);
+    background-color: #E3F2FD;
     box-sizing: border-box;
-    margin-left: 0.5%;
     padding: 1% 0 0 0;
     border: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -133,7 +289,7 @@ body {
 }
 
 .menu img:hover {
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgb(67, 101, 123, 0.3);
 }
 
 .menu .hover-spans {
@@ -147,17 +303,18 @@ body {
     top: 2%;
     right: 4.5%;
     font-size: 0.8em;
+    color: white;
 }
 
 .menu .hover-spans span {
     width: auto;
     height: 27px;
-    background-color: rgb(54, 57, 64);
+    background-color: rgb(67, 101, 123);
     border-radius: 4px;
     padding: 5px 12px 4.5px 12px;
     display: none;
     align-content: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     visibility: hidden;
 }
 
@@ -176,7 +333,7 @@ body {
 /* BD */
 
 .bd-container {
-    width: 96%;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding-right: 0.5%;
@@ -187,26 +344,30 @@ body {
 
 .search-container {
     width: 100%;
-    height: 10%;
-    padding: 0 1% 0 1%;
+    height: 7%;
+    background-color: #F7FAF7;
+    box-shadow: 0px 1px 2px 1px rgb(0, 0, 0, 0.1);
+    padding: 0 1.5% 0 1.5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 11px;
-    position: sticky;
     top: 0;
     font-size: 5em;
 }
 
 .search-only-wrapper {
     width: 50%;
-    height: 100%;
+    height: 80%;
+    background-color: transparent;
     display: flex;
     align-items: center;
     gap: 11px;
+    z-index: 10;
 }
 
 .search-only-wrapper svg {
+    background-color: transparent;
     border-radius: 50%;
     padding: 1px;
 }
@@ -220,80 +381,134 @@ body {
 }
 
 .search-only-wrapper svg:hover path {
-    stroke: black;
+    stroke: blue;
     cursor: pointer;
 }
 
 #search_bar {
     width: 50%;
     height: 15%;
-    background-color: lightgray;
-    border: 1px solid lightgray;
+    background-color: ;
+    margin-right: 3%;
+    border: 1.5px solid rgb(237, 234, 234);
     border-radius: 10px;
+    outline: none;
     padding: 10px;
     color: black;
 }
 
+.search-only-wrapper span {
+    padding-left: 4%;
+    display: flex;
+    position: relative;
+}
+
+.search-only-wrapper span::after {
+    content: '';
+    width: 1px; 
+    height: 80%;
+    background-color: black;
+    position: absolute;
+    top: 50%; 
+    bottom: 0; 
+    left: 0; 
+    transform: translateY(-50%);
+}
+
+.search-only-wrapper span img {
+    width: 25px;
+    height: 22px;
+    background-color: transparent;
+    margin-right: 18%;
+    border-radius: 4px;
+    padding: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-only-wrapper span img:hover {
+    background-color: rgb(231, 227, 227);
+}
+
 .add-patient-logo {
-    width: 45x;
-    height: 45px;
-    margin-top: 0.5%;
-    margin-right: 1.5%;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    margin-top: 0.2%;
+    margin-right: 3.8%;
 }
 
 .add-patient-logo:hover {
-    background-color: transparent;
     cursor: pointer;
 }
 
 .table-bd {
-    height: 50%;
-    width: 100%;
+    width: 96%;
+    height: 100%;
+    margin-top: 1.5%;
+    margin-left: 1.5%;
+    border-collapse: collapse;
     border-top-right-radius: 10px;
-    border-collapse: separate;
+    table-layout: fixed;
+}
+
+.table-bd tr {
+    border-bottom: 1.5px solid rgb(237, 234, 234);
 }
 
 .table-bd thead th, .table-bd tbody td {
     box-sizing: border-box;
     padding: 10px 14px 10px 14px;
-    font-size: 0.8em;
     text-align: left;
+    font-size: 0.9em;
 }
 
 .table-bd thead th {
-    width: 20%;
-    background-color: rgb(109, 122, 224);
-    font-size: 1.2em !important;
-    color: black;
+    width: 15%;
+    background-color: #b9cddb;
+    font-size: 1em !important;
+    color: rgb(102, 102, 102);
+    font-weight: 550;
+}
+
+.table-bd thead th:nth-child(n+2) {
+    text-align: center;
+}
+
+.table-bd thead th:nth-child(1) {
+    width: 40%;
+    border-top-left-radius: 10px;
 }
 
 .table-bd thead th:nth-child(5) {
     border-top-right-radius: 10px;
 }
 
-.table-bd tbody tr:nth-child(even) td {
-    background-color: rgb(87, 90, 96);
+.table-bd tbody td {
+    background-color: white;
+    padding: 7px 14px 7px 14px;
+    color: gb(102, 102, 102);
+}
+
+.table-bd tbody td:nth-child(1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-bd tbody td:nth-child(n+2) {
+    text-align: center;
 }
 
 /* EXPEDIENTE */
 
 .add-patient-container {
     width: 96%;
-    height: 100%;
+    height: auto;
     padding: 4% 3% 4% 3%;
     display: none;
-    grid-template-rows: auto auto;
-    grid-template-columns: 40% 40%;
-    grid-column-gap: 20%;
-    overflow: auto;
-}
-
-.add-patient-principal-info {
-    display: flex;
     flex-direction: column;
-    overflow: hidden;
-    font-size: 1.2em;
-    margin: 0;
+    gap: 10%;
+    overflow-y: auto;
 }
 
 .add-patient-container h1 {
@@ -301,13 +516,57 @@ body {
     margin-bottom: 2%;
 }
 
-.add-patient-principal-info input {
-    width: 96%;
-    height: 5%;
-    margin-bottom: 5px;
+.add-patient-container div {
+    width: 1000px;
+    height: auto;
+}
+
+/* EXPEDIENTE - PRINCIPAL INFO */
+
+.add-patient-principal-info {
+    display: flex;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.add-patient-principal-info div {
+    
+}
+
+.add-patient-principal-info div span {
+    height: 35px;
+    background-color: green;
+    box-sizing: border-box;
     margin-bottom: 15px;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.add-patient-principal-info div span input {
+    width: 200px;
+    height: 100%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1.5px solid rgb(200, 200, 200);
+    outline: none;
+    padding-left: 8px;
+}
+
+.add-patient-principal-info button {
+    display: none;
+}
+
+/* EXPEDIENTE - ALLERGIES */
+
+.add-patient-allergies {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
 }
 
 .dropdown-menu-allergies {
@@ -360,6 +619,157 @@ body {
     width: 80%;
     height: 50%;
     border: 1px solid white;
+}
+
+/* EXPEDIENTE - ANTECEDENTES PERSONALES */
+
+.add-patient-antecedentes-personales {
+    display: flex;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.add-patient-antecedentes-personales div span{
+    height: 35px;
+    background-color: green;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.add-patient-antecedentes-personales div span input {
+    width: 200px;
+    height: 100%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1.5px solid rgb(200, 200, 200);
+    outline: none;
+    padding-left: 8px;
+}
+
+/* EXPEDIENTE - ANTECEDENTES PATOLOGICOS */
+
+.add-patient-antecedentes-patologicos {
+    display: flex;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.add-patient-antecedentes-patologicos div span{
+    height: 35px;
+    background-color: green;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.add-patient-antecedentes-patologicos div span input {
+    width: 200px;
+    height: 100%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1.5px solid rgb(200, 200, 200);
+    outline: none;
+    padding-left: 8px;
+}
+
+/* EXPEDIENTE - HISTORIA LABORAL */
+
+.add-patient-historia-laboral textarea {
+    width: 500px;
+}
+
+/* EXPEDIENTE - ANTECEDENTES PERSONALES 2 */
+
+.add-patient-antecedentes-personales2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.antecedentes-personales2-categorie {
+    padding-top: 50px;
+    display: flex;
+    position: relative;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.antecedentes-personales2-categorie h3 {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.add-patient-antecedentes-personales2 div span{
+    height: 35px;
+    background-color: rgb(177, 52, 193);
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.add-patient-antecedentes-personales2 div span input {
+    width: 200px;
+    height: 100%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1.5px solid rgb(200, 200, 200);
+    outline: none;
+    padding-left: 8px;
+}
+
+/* EXPEDIENTE - EXPLORACIÓN FISICA */
+
+.add-patient-exploracion-fisica {
+    display: flex;
+    gap: 15%;
+    font-size: 1.2em;
+}
+
+.add-patient-exploracion-fisica div span {
+    height: 35px;
+    background-color: green;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.add-patient-exploracion-fisica div span input {
+    width: 200px;
+    height: 100%;
+    margin-left: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-left: 1.5px solid rgb(200, 200, 200);
+    outline: none;
+    padding-left: 8px;
 }
 
 
