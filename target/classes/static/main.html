@@ -59,7 +59,11 @@
 
                     <input type="text" id="search_bar">
 
-                    <span><img title="hola" src="imgs/lookexpedienteicon.png"><img src="imgs/editexpedienteicon.png"><img src="imgs/deleteexpedienteicon.png"></span>
+                    <span>
+                        <span class="tooltip" data-tooltip="View Record"><img  src="imgs/lookexpedienteicon.png"></span>
+                        <span class="tooltip" data-tooltip="View Record"><img src="imgs/editexpedienteicon.png"></span>
+                        <span class="tooltip" data-tooltip="View Record"><img src="imgs/deleteexpedienteicon.png"></span>
+                    </span>
                 </div>
 
                 <img class="add-patient-logo" src="imgs/heart.png">
@@ -76,7 +80,7 @@
                         <th>Estatura</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table_body">
                     <tr>
                         <td>Lelouch Lamperouge</td>
                         <td>10</td>

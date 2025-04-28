@@ -170,6 +170,49 @@ document.getElementById('savePatient').addEventListener('click', () => {
         });
 });
 
+/* BD - TABLE - FETCH PATIENTS */
+
+const tableBody = document.getElementById('table_body');
+var tableRowsArray = tableBody.querySelectorAll('tr');
+
+
+fetch("http://localhost:8080/demo/api/v1/getPatients", {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer <tu_token_aqui>"  // Si es necesario
+    }
+})
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("No se pudieron obtener los datos de los pacientes");
+        }
+        return response.json();  // Aquí convertimos la respuesta a un array de pacientes
+    })
+    .then((data) => {
+        console.log("Datos de pacientes obtenidos con éxito:", data);
+
+        // Asegúrate de que los datos sean un array
+        if (Array.isArray(data)) {
+            // Aquí puedes trabajar con el array de pacientes
+            data.forEach((patient) => {
+                console.log(`Paciente: ${patient.firstName} ${patient.lastName}`);
+                tableBody.innerHTML += `<tr><td>${patient.firstName}</td><tr>`;
+            });
+        } else {
+            console.error("La respuesta no es un array.");
+        }
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
+
+
+
+
+
+
+
 
 
 

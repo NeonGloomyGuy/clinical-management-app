@@ -397,13 +397,14 @@ body {
     color: black;
 }
 
-.search-only-wrapper span {
+.search-only-wrapper > span {
     padding-left: 4%;
     display: flex;
+    gap: 10px;
     position: relative;
 }
 
-.search-only-wrapper span::after {
+.search-only-wrapper > span::after {
     content: '';
     width: 1px; 
     height: 80%;
@@ -415,17 +416,20 @@ body {
     transform: translateY(-50%);
 }
 
-.search-only-wrapper span img {
+.search-only-wrapper span span {
+}
+
+.search-only-wrapper span span img {
     width: 25px;
     height: 22px;
     background-color: transparent;
-    margin-right: 18%;
     border-radius: 4px;
     padding: 5px;
+    display: block;
     transition: background-color 0.2s ease-in-out;
 }
 
-.search-only-wrapper span img:hover {
+.search-only-wrapper span span img:hover {
     background-color: rgb(231, 227, 227);
 }
 
@@ -486,7 +490,6 @@ body {
 .table-bd tbody td {
     background-color: white;
     padding: 7px 14px 7px 14px;
-    color: gb(102, 102, 102);
 }
 
 .table-bd tbody td:nth-child(1) {
@@ -771,6 +774,35 @@ body {
     outline: none;
     padding-left: 8px;
 }
+
+/* TOOLTIP */
+
+.tooltip {
+    position: relative;
+    font-size: 0.12em; 
+}
+
+.tooltip::after {
+    content: attr(data-tooltip); 
+    background-color: #F7FAF7;
+    border: 1px solid rgb(237, 234, 234);
+    border-radius: 5px;
+    padding: 4px 8px;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%); 
+    color: black;
+    visibility: hidden; 
+    transition: opacity 1s;
+    white-space: nowrap;
+    z-index: 100; 
+}
+
+.tooltip:hover::after {
+    visibility: visible; 
+}
+
 
 
 
