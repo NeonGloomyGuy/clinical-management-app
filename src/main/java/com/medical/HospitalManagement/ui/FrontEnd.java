@@ -16,7 +16,6 @@ public class FrontEnd extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Hybrid Desktop App");
         primaryStage.setMaximized(true);
-        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
