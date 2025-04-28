@@ -9,7 +9,7 @@ public class FrontEnd extends Application {
     @Override
     public void start(Stage primaryStage) {
         WebView webView = new WebView();
-        webView.getEngine().load("http://localhost:8080/main.html");
+        webView.getEngine().load("http://localhost:8080/clinic-app/management/main.html");
 
         Scene scene = new Scene(webView);
         

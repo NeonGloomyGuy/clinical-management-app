@@ -1,41 +1,40 @@
 package com.medical.HospitalManagement.controllers;
 
 import com.medical.HospitalManagement.dto.PatientDto;
-import com.medical.HospitalManagement.repository.PatientRepository;
-import com.mongodb.client.MongoClient;
+import com.medical.HospitalManagement.service.PatientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@RequestMapping("demo/api/v1")
+@RequestMapping("/api/v1/patients")
 @RestController
 public class HMController {
 
+    private final PatientService patientService;
+
     @Autowired
-    private PatientRepository patientRepository;
-    @Autowired
-    private MongoClient mongoClient;
+    public HMController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
+    @GetMapping("/allPatients")
+    public List<PatientDto> searchPatients() {
+        return patientService.searchAllPatients();
+    }
 
-    @GetMapping("message")
-    public List<PatientDto> exampleRoute(){
+    @PostMapping("/createPatient")
+    public ResponseEntity<PatientDto> createPatient(@RequestBody PatientDto patient) {
+        return ResponseEntity.ok(patientService.savePatient(patient));
+    }
 
-
-        return patientRepository.findAll();
-}
-
-    @PostMapping("savePatient")
-    public void exampleRoute2(@RequestBody PatientDto patient){
-        try{
-            patientRepository.insert(patient);
-        } catch (Exception e){
-            log.error("Error"+ e);
-        }
-
+    @GetMapping("/searchPatient")
+    public List<PatientDto> searchPatients(@RequestParam String query) {
+        return patientService.searchPatients(query);
     }
 
 }

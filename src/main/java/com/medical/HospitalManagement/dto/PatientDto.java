@@ -4,28 +4,25 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
-@Document(collection = "GeneralInfo")
+@Document(collection = "PatientsInfo")
 public class PatientDto {
 
     @Id
     private String id;
-
-    @Field("nombre")
-    private String nombre;
-
-    @Field("edad")
-    private String edad;
-
-    @Field("tipo_sanguineo")
-    private String tipo_sanguineo;
-
-    @Field("peso")
-    private String peso;
-
-    @Field("estatura")
-    private String estatura;
+    private String firstName;
+    private String lastName;
+    private Date dateOfBirth;
+    private String gender;
+    private String address;
+    private String phoneNumber;
+    private String email;
+    private String bloodType;
+    private List<String> allergies;
+    private List<String> chronicConditions;
 }
