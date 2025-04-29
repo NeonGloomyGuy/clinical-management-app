@@ -1,7 +1,7 @@
 /* DISPLAY CHANGE  */
 const bdContainer = document.querySelector('.bd-container');
 
-const addPatientButton = document.querySelector('.add-patient-logo');
+const addPatientButton = document.querySelector('.add-patient-btn');
 
 const expedientesContainer = document.querySelector('.add-patient-container');
 
@@ -130,45 +130,9 @@ iconPlusAllergie.forEach(icon => {
     })
 });
 
-/* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT */
-     //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
-     //var numOfAllergies = allergiesContainers.length;
 
-     //var allergies = [];
 
-     //for(var i = 0; i < numOfAllergies; i++) {
-       // allergies.push(allergiesContainers[i].textContent.trim());
-     //}
-document.getElementById('savePatient').addEventListener('click', () => {
-    var jsonData = JSON.stringify({
-        nombre: document.getElementById('nombre').value,
-        edad: parseInt(document.getElementById('edad').value),
-        tipo_sanguineo: document.getElementById('tipo_sanguineo').value,
-        peso: parseFloat(document.getElementById('peso').value),
-        estatura: parseFloat(document.getElementById('estatura').value),
-
-        //alergias: allergies
-    });
-     fetch("http://localhost:8080/demo/api/v1/savePatient", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: jsonData
-        })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("No se enviaron los datos");
-            }
-            return response.json();
-        })
-        .then((data) => {
-            console.log("Datos enviados con éxito:", data);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        });
-});
+/* --- BD - TABLE  --- */
 
 /* BD - TABLE - FETCH PATIENTS */
 
@@ -209,13 +173,108 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
 });
 
 
+/* BD - TABLE - SELECT PATIENT */
+
+const tableRows = tableBody.querySelectorAll('tr');
+
+tableRows.forEach(row => {
+        row.addEventListener('click', () => {
+        
+            
+            if(row.classList.contains('selected')) {
+                tableRows.forEach(r => { r.classList.remove('selected'); });
+                row.classList.add('selected');
+            } else {
+                row.classList.add('selected');
+            }
+            
+        });
+        
+        if(row.classList.contains('selected')) {
+            var patientName = row.children[0].textContent;
+        }
+});
+
+
+/* BD - TABLE - DELETE PATIENT */
+
+const deleteExpedienteButton = document.getElementById('delete_expediente_btn');
+
+deleteExpedienteButton.addEventListener('click', () => { 
+
+    var selectedRow = document.querySelector('.selected');
+    if(selectedRow) {
+        
+        var patientName = selectedRow.children[0].textContent;
+        console.log("Paciente seleccionado para eliminar:", patientName);
+        
+        fetch("http://localhost:8080/clinic-app/management/api/v1/patients/deletePatient", {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name: patientName })
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("No se pudo eliminar el paciente");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Paciente eliminado con éxito:", data);
+            selectedRow.remove(); 
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+
+    } else {
+        console.log("No hay paciente seleccionado para eliminar.");
+    }
+});
 
 
 
+/* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT */
+     //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
+     //var numOfAllergies = allergiesContainers.length;
 
+     //var allergies = [];
 
+     //for(var i = 0; i < numOfAllergies; i++) {
+       // allergies.push(allergiesContainers[i].textContent.trim());
+     //}
+document.getElementById('savePatient').addEventListener('click', () => {
+    var jsonData = JSON.stringify({
+        nombre: document.getElementById('nombre').value,
+        edad: parseInt(document.getElementById('edad').value),
+        tipo_sanguineo: document.getElementById('tipo_sanguineo').value,
+        peso: parseFloat(document.getElementById('peso').value),
+        estatura: parseFloat(document.getElementById('estatura').value),
 
-
+        //alergias: allergies
+    });
+     fetch("http://localhost:8080/demo/api/v1/savePatient", {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: jsonData
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("No se enviaron los datos");
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("Datos enviados con éxito:", data);
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+});
 
 
 

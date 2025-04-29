@@ -357,7 +357,7 @@ body {
 }
 
 .search-only-wrapper {
-    width: 50%;
+    width: 55.5%;
     height: 80%;
     background-color: transparent;
     display: flex;
@@ -398,7 +398,9 @@ body {
 }
 
 .search-only-wrapper > span {
+    margin-right: 1%;
     padding-left: 4%;
+    padding-right: 4%;
     display: flex;
     gap: 10px;
     position: relative;
@@ -411,8 +413,18 @@ body {
     background-color: black;
     position: absolute;
     top: 50%; 
-    bottom: 0; 
     left: 0; 
+    transform: translateY(-50%);
+}
+
+.search-only-wrapper > span::before {
+    content: '';
+    width: 1px; 
+    height: 80%;
+    background-color: black;
+    position: absolute;
+    top: 50%; 
+    right: 0; 
     transform: translateY(-50%);
 }
 
@@ -433,15 +445,40 @@ body {
     background-color: rgb(231, 227, 227);
 }
 
-.add-patient-logo {
-    width: 35px;
-    height: 35px;
-    background-color: transparent;
-    margin-top: 0.2%;
-    margin-right: 3.8%;
+#reload_table_btn {
+    border: none;
+    font-family: montserrat;
 }
 
-.add-patient-logo:hover {
+#reload_table_btn::after {
+    top: 105%;
+}
+
+#reload_table_btn img {
+    width: 25px;
+    height: 22px;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 5px;
+    vertical-align: middle;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#reload_table_btn img:hover {
+    background-color: rgb(231, 227, 227);
+}
+
+.add-patient-btn {
+    background-color: transparent;
+    margin-top: 0.2%;
+    margin-right: 4%;
+    box-shadow: 0px 0px 5px 2px rgb(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 15px;
+}
+
+.add-patient-btn:hover {
     cursor: pointer;
 }
 
@@ -459,16 +496,12 @@ body {
     border-bottom: 1.5px solid rgb(237, 234, 234);
 }
 
-.table-bd thead th, .table-bd tbody td {
-    box-sizing: border-box;
-    padding: 10px 14px 10px 14px;
-    text-align: left;
-    font-size: 0.9em;
-}
-
 .table-bd thead th {
     width: 15%;
     background-color: #b9cddb;
+    box-sizing: border-box;
+    padding: 10px 14px 10px 14px;
+    text-align: left;
     font-size: 1em !important;
     color: rgb(102, 102, 102);
     font-weight: 550;
@@ -490,6 +523,7 @@ body {
 .table-bd tbody td {
     background-color: white;
     padding: 7px 14px 7px 14px;
+    cursor: url('imgs/syringe.png') 0 30, pointer;
 }
 
 .table-bd tbody td:nth-child(1) {
@@ -501,6 +535,14 @@ body {
 .table-bd tbody td:nth-child(n+2) {
     text-align: center;
 }
+
+.table-bd tbody tr:hover td  {
+    background-color: rgb(248, 201, 201);
+}
+
+.table-bd tbody tr.selected td {
+    background-color: rgb(248, 201, 201);
+  }
 
 /* EXPEDIENTE */
 
@@ -779,23 +821,24 @@ body {
 
 .tooltip {
     position: relative;
-    font-size: 0.12em; 
+    font-size: 0.13em;
+    letter-spacing: 0.5px;
 }
 
 .tooltip::after {
     content: attr(data-tooltip); 
-    background-color: #F7FAF7;
+    background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgb(237, 234, 234);
     border-radius: 5px;
     padding: 4px 8px;
     position: absolute;
-    top: 110%;
+    top: 108%;
     left: 50%;
     transform: translateX(-50%); 
-    color: black;
+    color: rgb(255, 255, 255);
     visibility: hidden; 
-    transition: opacity 1s;
     white-space: nowrap;
+    transition: visibility 1s ease-in; 
     z-index: 100; 
 }
 
