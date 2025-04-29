@@ -1,27 +1,28 @@
 package com.medical.HospitalManagement.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
-@Document(collection = "users")
+@Document(collection = "PatientsInfo")
 public class PatientDto {
 
     @Id
     private String id;
-
-    @Field("name")
-    private String name;
-
-    @Field("email")
+    private String firstName;
+    private String lastName;
+    private Date dateOfBirth;
+    private String gender;
+    private String address;
+    private String phoneNumber;
     private String email;
-
-    @Field("password")
-    private String password;
+    private String bloodType;
+    private List<String> allergies;
+    private List<String> chronicConditions;
 }

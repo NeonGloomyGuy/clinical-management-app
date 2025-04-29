@@ -1,39 +1,44 @@
 package com.medical.HospitalManagement.controllers;
 
 import com.medical.HospitalManagement.dto.PatientDto;
-import com.medical.HospitalManagement.repository.PatientRepository;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
+import com.medical.HospitalManagement.service.PatientService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("demo/api/v1")
+@Slf4j
+@RequestMapping("/api/v1/patients")
 @RestController
 public class HMController {
 
+    private final PatientService patientService;
+    private static final Logger logger = LoggerFactory.getLogger(HMController.class);
+
     @Autowired
-    private PatientRepository patientRepository;
-    @Autowired
-    private MongoClient mongoClient;
+    public HMController(PatientService patientService) {
+        this.patientService = patientService;
+    }
 
+    @GetMapping("/allPatients")
+    public List<PatientDto> searchPatients() {
+        logger.info("Se hace petición a mongo");
+        return patientService.searchAllPatients();
+    }
 
-    @GetMapping("message")
-    public List<PatientDto> exampleRoute(){
+    @PostMapping("/createPatient")
+    public ResponseEntity<PatientDto> createPatient(@RequestBody PatientDto patient) {
+        return ResponseEntity.ok(patientService.savePatient(patient));
+    }
 
+    @GetMapping("/searchPatient")
+    public List<PatientDto> searchPatients(@RequestParam String query) {
 
-        return patientRepository.findAll();
-}
-
-    @GetMapping("data")
-    public String exampleRoute2(){
-
-        return "Hola mundoxd";
+        return patientService.searchPatients(query);
     }
 
 }
