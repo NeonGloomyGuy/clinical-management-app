@@ -1,0 +1,49 @@
+# Gradle files
+.gradle/
+build/
+
+# Maven files
+target/
+
+# IDE files
+.idea/                  # IntelliJ IDEA
+.vscode/                # Visual Studio Code
+*.iml                   # IntelliJ IDEA module files
+*.ipr                   # IntelliJ IDEA project files
+*.iws                   # IntelliJ IDEA workspace files
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+logs/
+
+# Package files
+*.jar
+*.war
+*.ear
+*.xml
+
+# m2 folder (local Maven repository)
+.m2/repository/
+
+# OS generated files
+.DS_Store               # macOS
+Thumbs.db               # Windows
+
+# Spring Boot Devtools live update
+**/spring-boot-devtools*.jar
+
+#STS (Spring Tool Suite)
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+
+# Prevent ignoring the Gradle wrapper jar if you are using it
+!gradle/wrapper/gradle-wrapper.jar
+
+# Prevent ignoring the Maven wrapper jar if you are using it
+!.mvn/wrapper/maven-wrapper.jar
