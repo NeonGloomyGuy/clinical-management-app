@@ -67,11 +67,11 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px;  
+    bottom: -2px;
     width: 100%;
-    height: 2.5px;  
-    background-color: #b9cddb;  
-    box-shadow: 0 0 8px #b9cddb;  
+    height: 2.5px;
+    background-color: #b9cddb;
+    box-shadow: 0 0 8px #b9cddb;
     border-radius: 2px;
 }
 
@@ -408,23 +408,23 @@ body {
 
 .search-only-wrapper > span::after {
     content: '';
-    width: 1px; 
+    width: 1px;
     height: 80%;
     background-color: black;
     position: absolute;
-    top: 50%; 
-    left: 0; 
+    top: 50%;
+    left: 0;
     transform: translateY(-50%);
 }
 
 .search-only-wrapper > span::before {
     content: '';
-    width: 1px; 
+    width: 1px;
     height: 80%;
     background-color: black;
     position: absolute;
-    top: 50%; 
-    right: 0; 
+    top: 50%;
+    right: 0;
     transform: translateY(-50%);
 }
 
@@ -476,6 +476,8 @@ body {
     border: none;
     border-radius: 4px;
     padding: 4px 15px;
+    font-size: 1rem;
+
 }
 
 .add-patient-btn:hover {
@@ -523,7 +525,6 @@ body {
 .table-bd tbody td {
     background-color: white;
     padding: 7px 14px 7px 14px;
-    cursor: url('imgs/syringe.png') 0 30, pointer;
 }
 
 .table-bd tbody td:nth-child(1) {
@@ -575,7 +576,7 @@ body {
 }
 
 .add-patient-principal-info div {
-    
+
 }
 
 .add-patient-principal-info div span {
@@ -826,7 +827,7 @@ body {
 }
 
 .tooltip::after {
-    content: attr(data-tooltip); 
+    content: attr(data-tooltip);
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgb(237, 234, 234);
     border-radius: 5px;
@@ -834,16 +835,16 @@ body {
     position: absolute;
     top: 108%;
     left: 50%;
-    transform: translateX(-50%); 
+    transform: translateX(-50%);
     color: rgb(255, 255, 255);
-    visibility: hidden; 
+    visibility: hidden;
     white-space: nowrap;
-    transition: visibility 1s ease-in; 
-    z-index: 100; 
+    transition: visibility 1s ease-in;
+    z-index: 100;
 }
 
 .tooltip:hover::after {
-    visibility: visible; 
+    visibility: visible;
 }
 
 

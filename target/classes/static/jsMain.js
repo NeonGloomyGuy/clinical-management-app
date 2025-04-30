@@ -158,9 +158,19 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
             // Asegúrate de que los datos sean un array
             if (Array.isArray(data)) {
                 // Aquí puedes trabajar con el array de pacientes
+
+                tableBody.innerHTML = '';
+
                 data.forEach((patient) => {
                     console.log(`Paciente: ${patient.firstName} ${patient.lastName}`);
-                    tableBody.innerHTML += `<tr><td>${patient.firstName}</td><tr>`;
+
+                        const row = document.createElement('tr');
+                        const nameCell = document.createElement('td');
+                        nameCell.textContent = patient.lastName;
+                        row.appendChild(nameCell);
+                        tableBody.appendChild(row);
+
+
                 });
             } else {
                 console.error("La respuesta no es un array.");
@@ -175,24 +185,24 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
 
 /* BD - TABLE - SELECT PATIENT */
 
-const tableRows = tableBody.querySelectorAll('tr');
+tableBody.addEventListener('click', (event) => {
+    const clickedRow = event.target.closest('tr');
 
-tableRows.forEach(row => {
-        row.addEventListener('click', () => {
-        
-            
-            if(row.classList.contains('selected')) {
-                tableRows.forEach(r => { r.classList.remove('selected'); });
-                row.classList.add('selected');
-            } else {
-                row.classList.add('selected');
+    if (clickedRow) {
+
+        if (clickedRow.classList.contains('selected')) {
+            clickedRow.classList.remove('selected');
+        } else {
+
+            const previouslySelected = tableBody.querySelector('.selected');
+            if (previouslySelected) {
+                previouslySelected.classList.remove('selected');
             }
-            
-        });
-        
-        if(row.classList.contains('selected')) {
-            var patientName = row.children[0].textContent;
+
+            clickedRow.classList.add('selected');
         }
+
+    }
 });
 
 
@@ -200,20 +210,18 @@ tableRows.forEach(row => {
 
 const deleteExpedienteButton = document.getElementById('delete_expediente_btn');
 
-deleteExpedienteButton.addEventListener('click', () => { 
+deleteExpedienteButton.addEventListener('click', () => {
 
     var selectedRow = document.querySelector('.selected');
+    var celdas = selectedRow.querySelectorAll('td');
     if(selectedRow) {
-        
-        var patientName = selectedRow.children[0].textContent;
-        console.log("Paciente seleccionado para eliminar:", patientName);
-        
-        fetch("http://localhost:8080/clinic-app/management/api/v1/patients/deletePatient", {
+
+        var patientName = celdas[0].textContent;
+        const encodedLastName = encodeURIComponent(patientName);
+        const url = `http://localhost:8080/clinic-app/management/api/v1/patients/deletePatient?lastName=${encodedLastName}`;
+
+        fetch(url, {
             method: 'DELETE',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name: patientName })
         })
         .then((response) => {
             if (!response.ok) {
@@ -223,7 +231,7 @@ deleteExpedienteButton.addEventListener('click', () => {
         })
         .then((data) => {
             console.log("Paciente eliminado con éxito:", data);
-            selectedRow.remove(); 
+            selectedRow.remove();
         })
         .catch((error) => {
             console.error("Error:", error);
