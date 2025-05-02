@@ -14,24 +14,32 @@ body {
     align-items: center;
     gap: 2%;
     position: absolute ;
-    top: 42.5%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
 
 @media (min-width: 1400px) {
     .login-ctn {
-        height: 60%;
+        width: 18%;
+        height: 55%;
     }
 }
 
 .login-ctn > img {
     width: 38%;
-    height: 23%;
+    height: 24%;
     background-color: white;
     margin-bottom: 10%;
     border-radius: 100%;
     padding: 20px;
+}
+
+@media (min-width: 1400px) {
+    .login-ctn img {
+        width: 45%;
+        height: 28%;
+    }
 }
 
 .login-ctn div{
@@ -48,6 +56,14 @@ body {
     font-weight: 480;
 }
 
+@media (min-width: 1400px) {
+    .login-ctn div {
+        width: 80%;
+        padding: 12px 0px 11px 12px;
+        font-size: 1rem;
+    }
+}
+
 .login-ctn div span {
     display: flex;
     align-items: center;
@@ -57,6 +73,13 @@ body {
     width: 12px;
     height: 12px;
     margin-right: 3px;
+}
+
+@media (min-width: 1400px) {
+    .login-ctn div span img {
+        width: 15px;
+        height: 15px;
+    }
 }
 
 .login-ctn div span input{
@@ -96,6 +119,12 @@ input:-webkit-autofill {
     letter-spacing: 0.5px;
     font-size: 0.9rem;
     transition: box-shadow 0.3s ease-in-out;
+}
+
+@media (min-width: 1400px) {
+    .login-ctn button {
+        font-size: 1rem;
+    }
 }
 
 .login-ctn button:hover {

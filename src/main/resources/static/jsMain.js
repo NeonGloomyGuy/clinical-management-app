@@ -86,7 +86,7 @@ backToAaimIcon.addEventListener('click', () => {
 });
 
 
-/* BD - EXPEDIENTE - DROPDOWN MENU ALLERGIES BUTTON */
+/* BD - EXPEDIENTE - DROPDOWN MENU ALLERGIES BUTTON
 
 const ddwMAContent = document.getElementById('dropdown_menu_allergies_content');
 const ddwMAButton = document.querySelector('.dropdown-menu-allergies-button');
@@ -100,7 +100,7 @@ ddwMAButton.addEventListener('click', () => {
     }
 });
 
-/* BD - EXPEDIENTE - DROPDDOWN MENU ALLERGIES FETCH ALLERGIES FROM ALLERGIES MANAGER */
+BD - EXPEDIENTE - DROPDDOWN MENU ALLERGIES FETCH ALLERGIES FROM ALLERGIES MANAGER
 
 var arrayAllergiesInMan = [];
 var allergiesDivsInMan = allergiesManager.querySelectorAll('div');
@@ -117,7 +117,7 @@ for(let i=0; i<allergiesDivsInMan.length; i++) {
 console.log(arrayAllergiesInMan);
 
 
-/* BD - EXPEDIENTE - DROPDOWN MENU ALLERGIES PLUS ALLERGIE*/
+ BD - EXPEDIENTE - DROPDOWN MENU ALLERGIES PLUS ALLERGIE
 
 const selectedAllergiesContainer = document.getElementById('selected_allergies');
 const iconPlusAllergie = document.querySelectorAll('.plus_allergie');
@@ -162,12 +162,28 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
                 tableBody.innerHTML = '';
 
                 data.forEach((patient) => {
-                    console.log(`Paciente: ${patient.firstName} ${patient.lastName}`);
+                    console.log(`Paciente: ${patient.nombre}`);
 
                         const row = document.createElement('tr');
+
                         const nameCell = document.createElement('td');
-                        nameCell.textContent = patient.lastName;
+                        const edadCell = document.createElement('td');
+                        const sexoCell = document.createElement('td');
+                        const fechaCell = document.createElement('td');
+                        const empresaCell = document.createElement('td');
+
+                        nameCell.textContent = patient.nombre;
+                        edadCell.textContent = patient.edad;
+                        sexoCell.textContent = patient.sexo;
+                        fechaCell.textContent = patient.fecha;
+                        empresaCell.textContent = patient.empresa;
+
                         row.appendChild(nameCell);
+                        row.appendChild(edadCell);
+                        row.appendChild(sexoCell);
+                        row.appendChild(fechaCell);
+                        row.appendChild(empresaCell);
+
                         tableBody.appendChild(row);
 
 
@@ -211,20 +227,16 @@ const lookPatientBtn = document.getElementById('look_patient_btn');
 
 lookPatientBtn.addEventListener('click', () => {
 
-    addPatientButton.addEventListener('click', () => {
+    var selectedRow = document.querySelector('.selected');
+    var cells = selectedRow.querySelectorAll('td');
 
-        if(expedientesContainer.style.display === 'flex'){
-            bdContainer.style.display = 'block';
-            expedientesContainer.style.display = 'none';
-        } else {
-    
-            bdContainer.style.display = 'none';
-            expedientesContainer.style.display = 'flex';
-        }
-    
-    });
+    if(selectedRow) {
 
-    fetch("http://localhost:8080/clinic-app/management/api/v1/patients/allPatients", {
+    var patientName = cells[0].textContent;
+    const encodedPatientName = encodeURIComponent(patientName);
+    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatient?name=${encodedPatientName}`;
+
+    fetch(url, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json"
@@ -237,32 +249,15 @@ lookPatientBtn.addEventListener('click', () => {
             return response.json();  // Aquí convertimos la respuesta a un array de pacientes
         })
         .then((data) => {
-            console.log("Datos de pacientes obtenidos con éxito:", data);
+
+            const patientData = data;
+            localStorage.setItem("datosPaciente", JSON.stringify(patientData));
 
             // Asegúrate de que los datos sean un array
             if (Array.isArray(data)) {
-                // Aquí puedes trabajar con el array de pacientes
 
-                data.forEach((patient) => {
-                    console.log(`Paciente: ${patient.firstName} ${patient.lastName}`);
 
-                    var selectedRow = document.querySelector('.selected');
-                    var cells = selectedRow.querySelectorAll('td');
-
-                    var patientName = cells[0].textContent;
-
-                    const inputs = document.querySelectorAll('.dato');
-
-                    if(`${patient.firstName} ${patient.lastName}` === patientName) {
-                        inputs[0].value = patient.firstName;
-                        inputs[1].value = patient.lastName;
-                        inputs[2].value = patient.age;
-                        inputs[3].value = patient.bloodType;
-                        inputs[4].value = patient.weight;
-                        inputs[5].value = patient.height;
-                    }
-                   
-                });
+                    window.location.href = "lookPatientInfo.html";
 
             } else {
                 console.error("La respuesta no es un array.");
@@ -271,6 +266,10 @@ lookPatientBtn.addEventListener('click', () => {
         .catch((error) => {
             console.error("Error:", error);
         });
+
+    } else {
+        console.log("No hay paciente seleccionado para mirar.");
+    }
 
 });
 
@@ -313,8 +312,7 @@ deleteExpedienteButton.addEventListener('click', () => {
 });
 
 
-
-/* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT */
+/* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT
      //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
      //var numOfAllergies = allergiesContainers.length;
 
@@ -353,3 +351,5 @@ document.getElementById('savePatient').addEventListener('click', () => {
             console.error("Error:", error);
         });
 });
+
+*/

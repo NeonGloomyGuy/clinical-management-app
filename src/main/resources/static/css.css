@@ -543,7 +543,7 @@ body {
     width: 96%;
     height: auto;
     padding: 4% 3% 4% 3%;
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 10%;
     position: relative;

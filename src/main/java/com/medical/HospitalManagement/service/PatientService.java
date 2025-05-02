@@ -1,46 +1,18 @@
 package com.medical.HospitalManagement.service;
 
 import com.medical.HospitalManagement.dto.PatientDto;
-import com.medical.HospitalManagement.repository.PatientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class PatientService {
-    private final PatientRepository patientRepository;
+public interface PatientService {
 
-    @Autowired
-    public PatientService(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-    }
+    PatientDto savePatient(PatientDto patient);
 
-    public PatientDto savePatient(PatientDto patient) {
-        return patientRepository.save(patient);
-    }
+    List<PatientDto> searchPatients(String patientName);
 
-    public List<PatientDto> searchPatients(String query) {
-        return patientRepository.findByLastNameContainingIgnoreCase(query);
-    }
+    List<PatientDto> searchAllPatients();
 
-    public List<PatientDto> searchAllPatients() {
-        return patientRepository.findAll();
-    }
-
-    @Transactional
-    public boolean deleteExactPatientByLastName(String lastName) {
-        Optional<PatientDto> patientOptional = patientRepository.findFirstByLastName(lastName);
-
-        if (patientOptional.isPresent()) {
-            patientRepository.delete(patientOptional.get());
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
+    boolean deletePatientByName(String patientName);
 }
