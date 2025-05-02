@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="cssLogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     
-    <div id="login_container">
-        <h1>Sesión</h1>
+    <div class="login-ctn">
+        
+        <img src="imgs/hospitalicon.png" alt="">
+        
+        <div id="user_ctn">Usuario <span><img src="imgs/passwordicon.png" alt=""><input type="text" id="input_user"><img class="erase_input_value_btn" src="imgs/eraseinputicon.png" alt=""></span></div>
+        <div id="pass_ctn">Contraseña <span><img src="imgs/usericon.png" alt=""><input type="password" id="input_pass"><img class="erase_input_value_btn" src="imgs/eraseinputicon.png" alt=""></span></div>
+    
+        <button id="verify_btn">Verificar</button>
 
-        <input type="text" id="user" placeholder="Usuario">
-        <input type="text" id="password" placeholder="Contraseña">
     </div>
 
-    <script src="jsMain.js"></script>
+    <span id="error_message">¡Usuario o contraseña incorrectos!</span>
+
+    <script src="jsLogin.js"></script>
 
 </body>
 </html>

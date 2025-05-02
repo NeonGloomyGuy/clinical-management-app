@@ -11,13 +11,6 @@ body {
     font-family: montserrat;
 }
 
-#login_container {
-    width: 15%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-
 /* MAIN PAGE */
 
 #header {
@@ -31,8 +24,8 @@ body {
     gap: 10px;
     position: relative;
     overflow: hidden;
-    font-size: 1.57em;
-    color: black;
+    font-size: 1.4rem;
+    font-weight: 450;
     z-index: 10;
 }
 
@@ -59,7 +52,7 @@ body {
 
 #header span {
     background-color: transparent;
-    margin-bottom: ;
+    margin-bottom: 1px;
     position: relative;
 }
 
@@ -67,11 +60,11 @@ body {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: -2px;  
     width: 100%;
-    height: 2.5px;
-    background-color: #b9cddb;
-    box-shadow: 0 0 8px #b9cddb;
+    height: 2.5px;  
+    background-color: #b9cddb;  
+    box-shadow: 0 0 8px #b9cddb;  
     border-radius: 2px;
 }
 
@@ -408,23 +401,23 @@ body {
 
 .search-only-wrapper > span::after {
     content: '';
-    width: 1px;
+    width: 1px; 
     height: 80%;
     background-color: black;
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: 50%; 
+    left: 0; 
     transform: translateY(-50%);
 }
 
 .search-only-wrapper > span::before {
     content: '';
-    width: 1px;
+    width: 1px; 
     height: 80%;
     background-color: black;
     position: absolute;
-    top: 50%;
-    right: 0;
+    top: 50%; 
+    right: 0; 
     transform: translateY(-50%);
 }
 
@@ -470,14 +463,12 @@ body {
 
 .add-patient-btn {
     background-color: transparent;
-    margin-top: 0.2%;
     margin-right: 4%;
     box-shadow: 0px 0px 5px 2px rgb(0, 0, 0, 0.1);
     border: none;
     border-radius: 4px;
     padding: 4px 15px;
     font-size: 1rem;
-
 }
 
 .add-patient-btn:hover {
@@ -486,7 +477,7 @@ body {
 
 .table-bd {
     width: 96%;
-    height: 100%;
+    height: auto;
     margin-top: 1.5%;
     margin-left: 1.5%;
     border-collapse: collapse;
@@ -525,6 +516,7 @@ body {
 .table-bd tbody td {
     background-color: white;
     padding: 7px 14px 7px 14px;
+    cursor: pointer;
 }
 
 .table-bd tbody td:nth-child(1) {
@@ -553,50 +545,62 @@ body {
     padding: 4% 3% 4% 3%;
     display: none;
     flex-direction: column;
-    gap: 10%;
+    gap: 5%;
+    position: relative;
     overflow-y: auto;
 }
 
 .add-patient-container h1 {
-    margin-top: 0;
-    margin-bottom: 2%;
+    width: 80%;
+    margin: 0;
+    border-bottom: 2px solid rgb(237, 234, 234);
+    padding-bottom: 0.6%;
+    font-size: 1.8rem;
+    color: rgb(102, 102, 102);
+    font-weight: 500;
 }
 
-.add-patient-container div {
+.add-patient-container > div {
     width: 1000px;
     height: auto;
+    display: flex;
+    gap: 10%;
 }
 
 /* EXPEDIENTE - PRINCIPAL INFO */
 
 .add-patient-principal-info {
-    display: flex;
-    gap: 15%;
-    font-size: 1.2em;
+   
 }
 
-.add-patient-principal-info div {
-
-}
-
-.add-patient-principal-info div span {
-    height: 35px;
-    background-color: green;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
-    border: 1px solid black;
+.add-patient-principal-info div > span {
+    width: 300px;
+    height: 30px;
+    background-color:#b9cddb;
+    box-shadow: 0px 0px 5px 1px rgb(0, 0, 0, 0.2);
     border-radius: 5px;
-    padding: 0 0 0 10px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
+.add-patient-principal-info div > span:has(br) {
+    height: 40px;
+}
+
+.add-patient-principal-info div span span {
+    width: 96.65px;
+    background-color: transparent;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .add-patient-principal-info div span input {
-    width: 200px;
+    width: 300px;
     height: 100%;
-    margin-left: 8px;
-    margin-bottom: 10px;
+    margin-left: 0;
     border: none;
     border-left: 1.5px solid rgb(200, 200, 200);
     outline: none;
@@ -818,6 +822,34 @@ body {
     padding-left: 8px;
 }
 
+/* EXPEDIENTE - EXTRA - TIPOS DE FORMATO */
+
+.tipos-de-formato {
+    width: auto !important;
+    height: auto !important;
+    background-color: #b9cddb !important;
+    border-radius: 10px !important;
+    display: block !important;
+    position: fixed !important;
+    top: 22% !important;
+    right: 10% !important;
+}
+
+.tipos-de-formato div {
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.tipos-de-formato div:hover {
+    background-color: rgb(88, 86, 86);
+    cursor: pointer;
+}
+
+
 /* TOOLTIP */
 
 .tooltip {
@@ -827,7 +859,7 @@ body {
 }
 
 .tooltip::after {
-    content: attr(data-tooltip);
+    content: attr(data-tooltip); 
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgb(237, 234, 234);
     border-radius: 5px;
@@ -835,14 +867,14 @@ body {
     position: absolute;
     top: 108%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); 
     color: rgb(255, 255, 255);
-    visibility: hidden;
+    visibility: hidden; 
     white-space: nowrap;
-    transition: visibility 1s ease-in;
-    z-index: 100;
+    transition: visibility 1s ease-in; 
+    z-index: 100; 
 }
 
 .tooltip:hover::after {
-    visibility: visible;
+    visibility: visible; 
 }

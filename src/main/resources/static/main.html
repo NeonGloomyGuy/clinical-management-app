@@ -11,356 +11,366 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<div id="header">
+    <!-- HEADER -->
+    <div id="header">
 
-    <img src="imgs/hospitalicon.png">
-    <span>Hospital Shoro</span>
-
-    <img class="header-menu-button" src="imgs/headermenuicon.png">
-
-</div>
-
-<!-- CONTENT -->
-<div class="content-container">
-
-    <!-- HEADER MENU Y MANAGERS -->
-
-    <div class="header-menu">
-
-        <div class="allergies-manager-button">Alergias</div>
+        <img src="imgs/hospitalicon.png">
+        <span>Hospital Shoro</span>
+        
+        <img class="header-menu-button" src="imgs/headermenuicon.png">
 
     </div>
 
-    <div id="allergies_manager">
-        <span class="allergies-manager-search-ctn"><img src="imgs/loupe.png"><input type="text"></span>
-        <div>Alergia a la lazaro <img src="imgs/bin.png"></div>
-        <div>Alergia a la florida <img src="imgs/bin.png"></div>
-        <span class="add-allergie-in-manager-button">Agregar Alergía . . .</span>
-    </div>
+    <!-- CONTENT -->
+    <div class="content-container">
 
-    <div id="add_allergie_in_manager">
-        <div class="title-aaim">Ingresa la Nueva Alergia<img id="back_to_aaim_icon" src="imgs/back.png"></div>
-        <div class="wrap-aaim-add-input">
-            <input type="text">
-            <div><button>Añadir</button></div>
+        <!-- HEADER MENU Y MANAGERS -->
+
+        <div class="header-menu">
+
+            <div class="allergies-manager-button">Alergias</div>
+
         </div>
-    </div>
 
-    <!-- BASE DE DATOS -->
-    <div class="bd-container">
+        <div id="allergies_manager">
+            <span class="allergies-manager-search-ctn"><img src="imgs/loupe.png"><input type="text"></span>
+            <div>Alergia a la lazaro <img src="imgs/bin.png"></div>
+            <div>Alergia a la florida <img src="imgs/bin.png"></div>
+            <span class="add-allergie-in-manager-button">Agregar Alergía . . .</span>
+        </div>
 
-        <div class="search-container">
+        <div id="add_allergie_in_manager">
+            <div class="title-aaim">Ingresa la Nueva Alergia<img id="back_to_aaim_icon" src="imgs/back.png"></div>
+            <div class="wrap-aaim-add-input">
+                <input type="text">
+                <div><button>Añadir</button></div>
+            </div>
+        </div>
 
-            <div class="search-only-wrapper">
-                <svg id="search_button" class="w-6 h-6 text-gray-800 dark:text-white stroke-gray-800 hover:stroke-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="black" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-                </svg>
+        <!-- BASE DE DATOS -->
+        <div class="bd-container">
 
-                <input type="text" id="search_bar">
+            <div class="search-container">
 
-                <span>
+                <div class="search-only-wrapper">
+                    <svg id="search_button" class="w-6 h-6 text-gray-800 dark:text-white stroke-gray-800 hover:stroke-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="black" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                    </svg>
+
+                    <input type="text" id="search_bar">
+
+                    <span>
                         <span class="tooltip" data-tooltip="Inspeccionar"><img  src="imgs/lookexpedienteicon.png"></span>
                         <span class="tooltip" data-tooltip="Editar"><img src="imgs/editexpedienteicon.png"></span>
                         <span id="delete_expediente_btn" class="tooltip" data-tooltip="Eliminar"><img src="imgs/deleteexpedienteicon.png"></span>
                     </span>
 
-                <button id="reload_table_btn" class="tooltip" data-tooltip="Actualizar"><img src="imgs/refreshicon.png"></button>
+                    <button id="reload_table_btn" class="tooltip" data-tooltip="Actualizar"><img src="imgs/refreshicon.png"></button>
+                </div>
+
+                <span class="add-patient-btn">Ir a Agregar Paciente</span>
+
             </div>
 
-            <span class="add-patient-btn">Ir a Agregar Paciente</span>
+            <table class="table-bd">
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Edad</th>
+                        <th>Tipo</th>
+                        <th>Peso</th>
+                        <th>Estatura</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    <tr>
+                        <td>Lelouch Lamperouge</td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>10</td>
+                        <td>A+</td>
+                        <td>65</td>
+                        <td>1.75</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-g f">Este es un ejemplo con Tailwind CSS.</p>
+        </div>
+
+       
+
+        <!-- AGREGAR PACIENTE (EXPEDIENTE) -->
+        
+        <div class="add-patient-container">
+
+            <h1>Informacion Principal</h1>
+
+            <div class="add-patient-principal-info">
+
+                <div>
+                    <span><span>Empresa</span><input type="text" id="empresa"></span><br>
+                    <span><span>Nombre</span><input type="text" id="nombre"></span><br>
+                    <span><span>Estado Civil</span><input type="text" id="estado_civil"></span><br>
+                    <span><span>Fecha de<br>Nacimiento</span><input type="text" id="fecha_de_nacimiento"></span><br>
+                    <span><span>Domicilio</span><input type="text" id="domicilio"></span><br>
+                    <span><span>Puesto de<br>Trabajo</span><input type="text" id="puesto_de_trabajo"></span>
+                </div>
+            
+                <div>
+                    <span><span>Fecha</span><input type="text" id="fecha"></span><br>
+                    <span><span>Edad</span><input type="text" id="edad"></span><br>
+                    <span><span>Tipo<br>Sanguineo</span><input type="text" id="tipo_sanguineo"></span><br>
+                    <span><span>Peso</span><input type="text" id="peso"></span><br>
+                    <span><span>Estatura</span><input type="text" id="estatura"></span>
+                </div>
+
+                <button id="savePatient">Crear Paciente</button>
+            </div>
+
+            <div class="add-patient-antecedentes-familiares">
+
+            </div>
+
+            <div class="add-patient-antecedentes-personales">
+                
+                <div>
+                    <span><span>Vivienda</span><input type="text" name="" ></span>
+                    <span><span>Tabaquismo</span><input type="text" name="" ></span>
+                    <span><span>Alcoholismo</span><input type="text" name="" ></span>
+                    <span><span>Drogas</span><input type="text" name="" ></span>
+                    <span><span>Deportes</span><input type="text" name="" ></span>
+                </div>
+                
+                <div>
+                    <span><span>Alimentación</span><input type="text" name="" ></span>
+                    <span><span>Higiene</span><input type="text" name="" ></span>
+                    <span><span>Inmunización</span><input type="text" name="" ></span>
+                    <span><span>Pasatiempos</span><input type="text" name="" ></span>
+                </div>
+
+            </div>
+
+            <div class="add-patient-antecedentes-patologicos">
+                <div>
+                    <span><span>Enfermedades</span> de la infancia<input type="text" name="" ></span>
+                    <span><span>Quirurgicos</span><input type="text" name="" ></span>
+                    <span><span>Traumaticos</span><input type="text" name="" ></span>
+                    <span><span>Transfuncionales</span><input type="text" name="" ></span>
+                    <span><span>Hipertensos</span><input type="text" name="" ></span>
+                    <span><span>Cardiovasculares</span><input type="text" name="" ></span>
+                    <span><span>Broncopulmonares</span><input type="text" name="" ></span>
+                </div>
+                
+                <div>
+                    <span><span>Metabolicos</span><input type="text" name="" ></span>
+                    <span><span>Alergicos</span><input type="text" name="" ></span>
+                    <span><span>Neuropsiquiatricos</span><input type="text" name="" ></span>
+                    <span><span>Reumaticos</span><input type="text" name="" ></span>
+                    <span><span>E.T.S.</span><input type="text" name="" ></span>
+                    <span><span>Enf. Comunes<input type="text" name="" ></span>
+                </div></span>
+            </div>
+
+            <div class="add-patient-historia-laboral">
+                <h1>Historia Laboral</h1>
+                <textarea id="Historia_laboral"></textarea>
+            </div>
+
+            <div class="add-patient-antecedentes-personales2">
+                
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Digestiv</h3>
+                    <div>
+                        <span><span>Dolor</span><input type="text" name="" ></span>
+                        <span><span>Pirósis</span><input type="text" name="" ></span>
+                        <span><span>Estreñimiento</span><input type="text" name="" ></span>
+                        <span><span>Hemorro</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Diarrea</span><input type="text" name="" ></span>
+                        <span><span>Parasitósis</span><input type="text" name="" ></span>
+                        <span><span>Otros</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Respiratorios</h3>
+                    <div>
+                        <span><span>Tos</span><input type="text" name="" ></span>
+                        <span><span>Epistaxis</span><input type="text" name="" ></span>
+                        <span><span>Faringitis</span><input type="text" name="" ></span>
+                        <span><span>Disfonia</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Laringitis</span><input type="text" name="" ></span>
+                        <span><span>Amigdalitis</span><input type="text" name="" ></span>
+                        <span><span>Otros</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Cardiovascular</h3>
+                    <div>
+                        <span><span>Dolor precordial</span><input type="text" name="" ></span>
+                        <span><span>Lipotimias</span><input type="text" name="" ></span>
+                        <span><span>Acufenos</span><input type="text" name="" ></span>
+                        <span><span>Edema</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Palpitaciones</span><input type="text" name="" ></span>
+                        <span><span>Fosfenos</span><input type="text" name="" ></span>
+                        <span><span>Cianosis</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Urinario</h3>
+                    <div>
+                        <span><span>Diuresis en 24 horas</span><input type="text" name="" ></span>
+                        <span><span>Incontenencia</span><input type="text" name="" ></span>
+                        <span><span>Litios o infecciones previas</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Disuria</span><input type="text" name="" ></span>
+                        <span><span>Características de la orina</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Genitales</h3>
+                    <div>
+                        <span><span>Hombres funciones sexuales</span><input type="text" name="" ></span>
+                        <span><span>Mujeres menarca</span><input type="text" name="" ></span>
+                        <span><span>F.U.R.</span><input type="text" name="" ></span>
+                        <span><span>Anticonceptivos</span><input type="text" name="" ></span>
+                        <span><span>Gestas para abortos</span><input type="text" name="" ></span>
+                        <span><span>Perturbaciones sexuales</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Flujo</span><input type="text" name="" ></span>
+                        <span><span>Ritmo</span><input type="text" name="" ></span>
+                        <span><span>Dismenorrea</span><input type="text" name="" ></span>
+                        <span><span>V.A.S.</span><input type="text" name="" ></span>
+                        <span><span>Cesáreas</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Nervioso</h3>
+                    <div>
+                        <span><span>Parálisis o Paresia</span><input type="text" name="" ></span>
+                        <span><span>Excitabilicad</span><input type="text" name="" ></span>
+                        <span><span>Perdida de conocimiento</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Amnesias, fobias y trastornos del sueño</span><input type="text" name="" ></span>
+                        <span><span>Cefaleas</span><input type="text" name="" ></span>
+                        <span><span>Ansiedad</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Musculo Esqueletico</h3>
+                    <div>
+                        <span><span>Algias</span><input type="text" name="" ></span>
+                        <span><span>Atrofias</span><input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Limitaciones de movimiento</span><input type="text" name="" ></span>
+                        <span><span>Deformaciones(columna, miembros, otros)</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+                <div class="antecedentes-personales2-categorie">
+                    <h3>Hematico y Linfatico</h3>
+                    <div>
+                        <span><span>Anemia</span><input type="text" name="" ></span>
+                        <span><span>Tendencia Hemorragipara</span><input type="text" name="" ></span>
+                        <span><span>PielMucosas y Anexos</span> <input type="text" name="" ></span>
+                    </div>
+                    
+                    <div>
+                        <span><span>Padecimiento actual(Terapeútica Empleada)</span><input type="text" name="" ></span>
+                        <span><span>Adenopatias</span><input type="text" name="" ></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="add-patient-exploracion-fisica">
+                <div>
+                    <span><span>Peso</span><input type="text" name="" ></span>
+                    <span><span>Talla</span><input type="text" name="" ></span>
+                    <span><span>T/A</span><input type="text" name="" ></span>
+                    <span><span>Pulso</span><input type="text" name="" ></span>
+                    <span><span>Resp</span><input type="text" name="" ></span>
+                </div>
+                
+                <div>
+                    <span><span>Inspeccion General(señas particulares, integrfísica y deforms)</span><input type="text" name="" ></span>
+                    <textarea name="" ></textarea>
+                </div>
+            </div>
+
+            <div class="add-patient-allergies">
+                <div class="dropdown-menu-allergies">
+                    <div class="dropdown-menu-allergies-button">Selecciona una Alergia  ></div>
+                    <div id="dropdown_menu_allergies_content">
+                        <div id="allergie_1">popo <img class="plus_allergie" src="imgs/addAllergie.png"></div>
+                        <div id="allergie_2">pipi <img src="imgs/addAllergie.png"></div>
+                    </div>
+                </div>
+
+                <div id="selected_allergies">
+
+                </div>
+            </div>
+            
+            <div class="tipos-de-formato">
+                <div>Formato A</div>
+                <div>Formato B</div>
+                <div>Formato C</div>
+                <div>Formato D</div>
+            </div>
+
+        </div>
+
+        <!-- RECETA MEDICA -->
+        <div class="receta-medica">
+        </div>
 
 
         </div>
 
-        <table class="table-bd">
-            <thead>
-            <tr>
-                <th>Paciente</th>
-                <th>Edad</th>
-                <th>Tipo</th>
-                <th>Peso</th>
-                <th>Estatura</th>
-            </tr>
-            </thead>
-            <tbody id="table_body">
-            <tr>
-                <td>Lelouch Lamperouge</td>
-                <td>10</td>
-                <td>A+</td>
-                <td>65</td>
-                <td>1.75</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>10</td>
-                <td>A+</td>
-                <td>65</td>
-                <td>1.75</td>
-            </tr>
-            </tbody>
-        </table>
+        <!-- MENU
+        <div class="menu">
+
+            <img id="expedientes-button-menu" src="imgs/bdicon.png">
+            <img id=database-button-menu src="imgs/expedienteicon.png">
+
+            <div class="hover-spans">
+                <span>Base de Datos</span>
+                <span>Expedientes</span>
+            </div>
+
+        </div> -->
+
     </div>
 
-    <!-- AGREGAR PACIENTE (EXPEDIENTE) -->
-
-    <div class="add-patient-container">
-
-        <h1>Informacion Principal</h1>
-
-        <div class="add-patient-principal-info">
-
-            <div>
-                <span>Empresa <input type="text" id="empresa"></span><br>
-                <span>Nombre <input type="text" id="nombre"></span><br>
-                <span>Estado Civil <input type="text" id="estado_civil"></span><br>
-                <span>Fecha de Nacimiento <input type="text" id="fecha_de_nacimiento"></span><br>
-                <span>Domicilio <input type="text" id="domicilio"></span><br>
-                <span>Puesto de Trabajo <input type="text" id="puesto_de_trabajo"></span>
-            </div>
-
-            <div>
-                <span>Fecha <input type="text" id="fecha"></span><br>
-                <span>Edad <input type="text" id="edad"></span><br>
-                <span>Tipo Sanguineo <input type="text" id="tipo_sanguineo"></span><br>
-                <span>Peso <input type="text" id="peso"></span><br>
-                <span>Estatura <input type="text" id="estatura"></span>
-            </div>
-
-            <button id="savePatient">Crear Paciente</button>
-        </div>
-
-        <div class="add-patient-antecedentes-familiares">
-
-        </div>
-
-        <div class="add-patient-antecedentes-personales">
-
-            <div>
-                <span>Vivienda<input type="text" name="" ></span>
-                <span>Tabaquismo<input type="text" name="" ></span>
-                <span>Alcoholismo<input type="text" name="" ></span>
-                <span>Drogas<input type="text" name="" ></span>
-                <span>Deportes<input type="text" name="" ></span>
-            </div>
-
-            <div>
-                <span>Alimentación<input type="text" name="" ></span>
-                <span>Higiene<input type="text" name="" ></span>
-                <span>Inmunización<input type="text" name="" ></span>
-                <span>Pasatiempos<input type="text" name="" ></span>
-            </div>
-
-        </div>
-
-        <div class="add-patient-antecedentes-patologicos">
-            <div>
-                <span>Enfermedades de la infancia<input type="text" name="" ></span>
-                <span>Quirurgicos<input type="text" name="" ></span>
-                <span>Traumaticos<input type="text" name="" ></span>
-                <span>Transfuncionales<input type="text" name="" ></span>
-                <span>Hipertensos<input type="text" name="" ></span>
-                <span>Cardiovasculares<input type="text" name="" ></span>
-                <span>Broncopulmonares<input type="text" name="" ></span>
-            </div>
-
-            <div>
-                <span>Metabolicos<input type="text" name="" ></span>
-                <span>Alergicos<input type="text" name="" ></span>
-                <span>Neuropsiquiatricos<input type="text" name="" ></span>
-                <span>Reumaticos<input type="text" name="" ></span>
-                <span>E.T.S.<input type="text" name="" ></span>
-                <span>Enf. Comunes<input type="text" name="" ></span>
-            </div>
-        </div>
-
-        <div class="add-patient-historia-laboral">
-            <h1>Historia Laboral</h1>
-            <textarea id="Historia_laboral"></textarea>
-        </div>
-
-        <div class="add-patient-antecedentes-personales2">
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Digestiv</h3>
-                <div>
-                    <span>Dolor<input type="text" name="" ></span>
-                    <span>Pirósis<input type="text" name="" ></span>
-                    <span>Estreñimiento<input type="text" name="" ></span>
-                    <span>Hemorroinput type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Diarrea<input type="text" name="" ></span>
-                    <span>Parasitósis<input type="text" name="" ></span>
-                    <span>Otros<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Respiratorios</h3>
-                <div>
-                    <span>Tos<input type="text" name="" ></span>
-                    <span>Epistaxis<input type="text" name="" ></span>
-                    <span>Faringitis<input type="text" name="" ></span>
-                    <span>Disfonia<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Laringitis<input type="text" name="" ></span>
-                    <span>Amigdalitis<input type="text" name="" ></span>
-                    <span>Otros<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Cardiovascular</h3>
-                <div>
-                    <span>Dolor precordial<input type="text" name="" ></span>
-                    <span>Lipotimias<input type="text" name="" ></span>
-                    <span>Acufenos<input type="text" name="" ></span>
-                    <span>Edema<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Palpitaciones<input type="text" name="" ></span>
-                    <span>Fosfenos<input type="text" name="" ></span>
-                    <span>Cianosis<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Urinario</h3>
-                <div>
-                    <span>Diuresis en 24 horas<input type="text" name="" ></span>
-                    <span>Incontenencia<input type="text" name="" ></span>
-                    <span>Litios o infecciones previas<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Disuria<input type="text" name="" ></span>
-                    <span>Características de la orina<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Genitales</h3>
-                <div>
-                    <span>Hombres funciones sexuales<input type="text" name="" ></span>
-                    <span>Mujeres menarca<input type="text" name="" ></span>
-                    <span>F.U.R.<input type="text" name="" ></span>
-                    <span>Anticonceptivos<input type="text" name="" ></span>
-                    <span>Gestas para abortos<input type="text" name="" ></span>
-                    <span>Perturbaciones sexuales<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Flujo<input type="text" name="" ></span>
-                    <span>Ritmo<input type="text" name="" ></span>
-                    <span>Dismenorrea<input type="text" name="" ></span>
-                    <span>V.A.S.<input type="text" name="" ></span>
-                    <span>Cesáreas<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Nervioso</h3>
-                <div>
-                    <span>Parálisis o Paresia<input type="text" name="" ></span>
-                    <span>Excitabilicad<input type="text" name="" ></span>
-                    <span>Perdde conocimiento<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Amnesias, fobias y trastornos del sueño<input type="text" name="" ></span>
-                    <span>Cefaleas<input type="text" name="" ></span>
-                    <span>Ansiedad<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Musculo Esqueletico</h3>
-                <div>
-                    <span>Algias<input type="text" name="" ></span>
-                    <span>Atrofias<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Limitaciones de movimiento<input type="text" name="" ></span>
-                    <span>Deformaciones(columna, miembros, otros)<input type="text" name="" ></span>
-                </div>
-            </div>
-
-            <div class="antecedentes-personales2-categorie">
-                <h3>Hematico y Linfatico</h3>
-                <div>
-                    <span>Anemia<input type="text" name="" ></span>
-                    <span>Tendencia Hemorragipara<input type="text" name="" ></span>
-                    <span>Piel Mucosas y Anexos<input type="text" name="" ></span>
-                </div>
-
-                <div>
-                    <span>Padecimiento actual(Terapeútica Empleada)<input type="text" name="" ></span>
-                    <span>Adenopatias<input type="text" name="" ></span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="add-patient-exploracion-fisica">
-            <div>
-                <span>Peso<input type="text" name="" ></span>
-                <span>Talla<input type="text" name="" ></span>
-                <span>T/A<input type="text" name="" ></span>
-                <span>Pulso<input type="text" name="" ></span>
-                <span>Resp<input type="text" name="" ></span>
-            </div>
-
-            <div>
-                <span>Inspeccion General(señas particulares, integrfísica y deforms)<input type="text" name="" ></span>
-                <textarea name="" ></textarea>
-            </div>
-        </div>
-
-        <div class="add-patient-allergies">
-            <div class="dropdown-menu-allergies">
-                <div class="dropdown-menu-allergies-button">Selecciona una Alergia  ></div>
-                <div id="dropdown_menu_allergies_content">
-                    <div id="allergie_1">popo <img class="plus_allergie" src="imgs/addAllergie.png"></div>
-                    <div id="allergie_2">pipi <img src="imgs/addAllergie.png"></div>
-                </div>
-            </div>
-
-            <div id="selected_allergies">
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- RECETA MEDICA -->
-    <div class="receta-medica">
-    </div>
-
-
-</div>
-
-<!-- MENU
-<div class="menu">
-
-    <img id="expedientes-button-menu" src="imgs/bdicon.png">
-    <img id=database-button-menu src="imgs/expedienteicon.png">
-
-    <div class="hover-spans">
-        <span>Base de Datos</span>
-        <span>Expedientes</span>
-    </div>
-
-</div> -->
-
-</div>
-
-<script src="jsMain.js"></script>
+    <script src="jsMain.js"></script>
 
 </body>
 </html>

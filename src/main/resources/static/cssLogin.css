@@ -1,0 +1,115 @@
+body {
+    font-family: Montserrat;
+}
+
+.login-ctn {
+    width: 20%;
+    height: 67%;
+    background-color: rgb(185, 205, 219, 0.5);
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+    position: absolute ;
+    top: 42.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-ctn > img {
+    width: 100x;
+    height: 100px;
+    background-color: white;
+    margin-bottom: 10%;
+    border-radius: 100%;
+    padding: 20px;
+}
+
+.login-ctn div{
+    width: 74%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px 0px 9px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 0.9rem;
+    font-weight: 480;
+}
+
+.login-ctn div span {
+    display: flex;
+    align-items: center;
+}
+
+.login-ctn div span img{
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+}
+
+.login-ctn div span input{
+    margin-right: 6px;
+    border: none;
+    outline: none;
+    font-size: 0.7rem;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.erase_input_value_btn {
+    width: 16px !important;
+    height: 16px !important; 
+    box-sizing: border-box !important;
+    border-radius: 2px !important;
+    padding: 3px !important;
+    display: none;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+.erase_input_value_btn:hover {
+    background-color: rgb(231, 227, 227) !important;
+}
+
+.login-ctn button {
+    width: 78%;
+    background-color: rgb(162, 196, 219);
+    margin-top: 5%;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.login-ctn button:hover {
+    box-shadow: 0px 0px 3px 1.5px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+/* EROR MESSAGE */
+
+#error_message {
+    background-color: rgb(255, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 8px 15px;
+    display: none;
+    position: absolute;
+    top: 2%;
+    left: 50%;  
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    font-weight: 480;
+    color: white;
+}
+
