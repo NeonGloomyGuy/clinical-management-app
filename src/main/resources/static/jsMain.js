@@ -205,6 +205,75 @@ tableBody.addEventListener('click', (event) => {
     }
 });
 
+/* BD - TABLE - LOOK PATIENT INFO */
+
+const lookPatientBtn = document.getElementById('look_patient_btn');
+
+lookPatientBtn.addEventListener('click', () => {
+
+    addPatientButton.addEventListener('click', () => {
+
+        if(expedientesContainer.style.display === 'flex'){
+            bdContainer.style.display = 'block';
+            expedientesContainer.style.display = 'none';
+        } else {
+    
+            bdContainer.style.display = 'none';
+            expedientesContainer.style.display = 'flex';
+        }
+    
+    });
+
+    fetch("http://localhost:8080/clinic-app/management/api/v1/patients/allPatients", {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("No se pudieron obtener los datos de los pacientes");
+            }
+            return response.json();  // Aquí convertimos la respuesta a un array de pacientes
+        })
+        .then((data) => {
+            console.log("Datos de pacientes obtenidos con éxito:", data);
+
+            // Asegúrate de que los datos sean un array
+            if (Array.isArray(data)) {
+                // Aquí puedes trabajar con el array de pacientes
+
+                data.forEach((patient) => {
+                    console.log(`Paciente: ${patient.firstName} ${patient.lastName}`);
+
+                    var selectedRow = document.querySelector('.selected');
+                    var cells = selectedRow.querySelectorAll('td');
+
+                    var patientName = cells[0].textContent;
+
+                    const inputs = document.querySelectorAll('.dato');
+
+                    if(`${patient.firstName} ${patient.lastName}` === patientName) {
+                        inputs[0].value = patient.firstName;
+                        inputs[1].value = patient.lastName;
+                        inputs[2].value = patient.age;
+                        inputs[3].value = patient.bloodType;
+                        inputs[4].value = patient.weight;
+                        inputs[5].value = patient.height;
+                    }
+                   
+                });
+
+            } else {
+                console.error("La respuesta no es un array.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+
+});
+
 
 /* BD - TABLE - DELETE PATIENT */
 
@@ -214,6 +283,7 @@ deleteExpedienteButton.addEventListener('click', () => {
 
     var selectedRow = document.querySelector('.selected');
     var celdas = selectedRow.querySelectorAll('td');
+
     if(selectedRow) {
 
         var patientName = celdas[0].textContent;

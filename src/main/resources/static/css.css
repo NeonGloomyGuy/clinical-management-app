@@ -545,7 +545,7 @@ body {
     padding: 4% 3% 4% 3%;
     display: none;
     flex-direction: column;
-    gap: 5%;
+    gap: 10%;
     position: relative;
     overflow-y: auto;
 }
@@ -553,6 +553,7 @@ body {
 .add-patient-container h1 {
     width: 80%;
     margin: 0;
+    margin-bottom: -2%;
     border-bottom: 2px solid rgb(237, 234, 234);
     padding-bottom: 0.6%;
     font-size: 1.8rem;
@@ -674,29 +675,37 @@ body {
 /* EXPEDIENTE - ANTECEDENTES PERSONALES */
 
 .add-patient-antecedentes-personales {
-    display: flex;
-    gap: 15%;
-    font-size: 1.2em;
+   
 }
 
-.add-patient-antecedentes-personales div span{
-    height: 35px;
-    background-color: green;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
-    border: 1px solid black;
+.add-patient-antecedentes-personales div > span {
+    width: 300px;
+    height: 30px;
+    background-color:#b9cddb;
+    box-shadow: 0px 0px 5px 1px rgb(0, 0, 0, 0.2);
     border-radius: 5px;
-    padding: 0 0 0 10px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
+.add-patient-antecedentes-personales div > span:has(br) {
+    height: 40px;
+}
+
+.add-patient-antecedentes-personales div span span {
+    width: 97.06px;
+    background-color: transparent;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .add-patient-antecedentes-personales div span input {
-    width: 200px;
+    width: 240px;
     height: 100%;
-    margin-left: 8px;
-    margin-bottom: 10px;
+    margin-left: 0;
     border: none;
     border-left: 1.5px solid rgb(200, 200, 200);
     outline: none;
@@ -706,29 +715,37 @@ body {
 /* EXPEDIENTE - ANTECEDENTES PATOLOGICOS */
 
 .add-patient-antecedentes-patologicos {
-    display: flex;
-    gap: 15%;
-    font-size: 1.2em;
+   
 }
 
-.add-patient-antecedentes-patologicos div span{
-    height: 35px;
-    background-color: green;
-    box-sizing: border-box;
-    margin-bottom: 15px;
-    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0, 0.6);
-    border: 1px solid black;
+.add-patient-antecedentes-patologicos div > span {
+    width: 300px;
+    height: 30px;
+    background-color:#b9cddb;
+    box-shadow: 0px 0px 5px 1px rgb(0, 0, 0, 0.2);
     border-radius: 5px;
-    padding: 0 0 0 10px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
+.add-patient-antecedentes-patologicos div > span:has(br) {
+    height: 40px;
+}
+
+.add-patient-antecedentes-patologicos div span span {
+    width: 117.05px;
+    background-color: transparent;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.7rem;
+}
+
 .add-patient-antecedentes-patologicos div span input {
-    width: 200px;
+    width: 160px;
     height: 100%;
-    margin-left: 8px;
-    margin-bottom: 10px;
+    margin-left: 0;
     border: none;
     border-left: 1.5px solid rgb(200, 200, 200);
     outline: none;
@@ -739,6 +756,9 @@ body {
 
 .add-patient-historia-laboral textarea {
     width: 500px;
+    height: 70px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 /* EXPEDIENTE - ANTECEDENTES PERSONALES 2 */

@@ -19,9 +19,15 @@ body {
     transform: translate(-50%, -50%);
 }
 
+@media (min-width: 1400px) {
+    .login-ctn {
+        height: 60%;
+    }
+}
+
 .login-ctn > img {
-    width: 100x;
-    height: 100px;
+    width: 38%;
+    height: 23%;
     background-color: white;
     margin-bottom: 10%;
     border-radius: 100%;

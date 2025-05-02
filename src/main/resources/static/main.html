@@ -60,7 +60,7 @@
                     <input type="text" id="search_bar">
 
                     <span>
-                        <span class="tooltip" data-tooltip="Inspeccionar"><img  src="imgs/lookexpedienteicon.png"></span>
+                        <span id="look_patient_btn" class="tooltip" data-tooltip="Inspeccionar"><img  src="imgs/lookexpedienteicon.png"></span>
                         <span class="tooltip" data-tooltip="Editar"><img src="imgs/editexpedienteicon.png"></span>
                         <span id="delete_expediente_btn" class="tooltip" data-tooltip="Eliminar"><img src="imgs/deleteexpedienteicon.png"></span>
                     </span>
@@ -114,8 +114,8 @@
             <div class="add-patient-principal-info">
 
                 <div>
-                    <span><span>Empresa</span><input type="text" id="empresa"></span><br>
-                    <span><span>Nombre</span><input type="text" id="nombre"></span><br>
+                    <span><span>Empresa</span><input type="text" id="empresa" class="dato"></span><br>
+                    <span><span>Nombre</span><input type="text" id="nombre" class="dato"></span><br>
                     <span><span>Estado Civil</span><input type="text" id="estado_civil"></span><br>
                     <span><span>Fecha de<br>Nacimiento</span><input type="text" id="fecha_de_nacimiento"></span><br>
                     <span><span>Domicilio</span><input type="text" id="domicilio"></span><br>
@@ -137,48 +137,54 @@
 
             </div>
 
+            <h1>Antecedentes Personales</h1>
+            
             <div class="add-patient-antecedentes-personales">
                 
                 <div>
-                    <span><span>Vivienda</span><input type="text" name="" ></span>
-                    <span><span>Tabaquismo</span><input type="text" name="" ></span>
-                    <span><span>Alcoholismo</span><input type="text" name="" ></span>
-                    <span><span>Drogas</span><input type="text" name="" ></span>
+                    <span><span>Vivienda</span><input type="text" name="" ></span><br>
+                    <span><span>Tabaquismo</span><input type="text" name="" ></span><br>
+                    <span><span>Alcoholismo</span><input type="text" name="" ></span><br>
+                    <span><span>Drogas</span><input type="text" name="" ></span><br>
                     <span><span>Deportes</span><input type="text" name="" ></span>
                 </div>
                 
                 <div>
-                    <span><span>Alimentación</span><input type="text" name="" ></span>
-                    <span><span>Higiene</span><input type="text" name="" ></span>
-                    <span><span>Inmunización</span><input type="text" name="" ></span>
-                    <span><span>Pasatiempos</span><input type="text" name="" ></span>
+                    <span><span>Alimentación</span><input type="text" name="" ></span><br>
+                    <span><span>Higiene</span><input type="text" name="" ></span><br>
+                    <span><span>Inmunización</span><input type="text" name="" ></span><br>
+                    <span><span>Pasatiempos</span><input type="text" name="" ></span><br>
                 </div>
 
             </div>
 
+            <h1>Antecedentes Patologicos</h1>
+
             <div class="add-patient-antecedentes-patologicos">
                 <div>
-                    <span><span>Enfermedades</span> de la infancia<input type="text" name="" ></span>
-                    <span><span>Quirurgicos</span><input type="text" name="" ></span>
-                    <span><span>Traumaticos</span><input type="text" name="" ></span>
-                    <span><span>Transfuncionales</span><input type="text" name="" ></span>
-                    <span><span>Hipertensos</span><input type="text" name="" ></span>
-                    <span><span>Cardiovasculares</span><input type="text" name="" ></span>
+                    <span><span>Enfermedades de<br>la infancia</span><input type="text" name="" ></span><br>
+                    <span><span>Quirurgicos</span><input type="text" name="" ></span><br>
+                    <span><span>Traumaticos</span><input type="text" name="" ></span><br>
+                    <span><span>Transfuncionales</span><input type="text" name="" ></span><br>
+                    <span><span>Hipertensos</span><input type="text" name="" ></span><br>
+                    <span><span>Cardiovasculares</span><input type="text" name="" ></span><br>
                     <span><span>Broncopulmonares</span><input type="text" name="" ></span>
                 </div>
                 
                 <div>
-                    <span><span>Metabolicos</span><input type="text" name="" ></span>
-                    <span><span>Alergicos</span><input type="text" name="" ></span>
-                    <span><span>Neuropsiquiatricos</span><input type="text" name="" ></span>
-                    <span><span>Reumaticos</span><input type="text" name="" ></span>
-                    <span><span>E.T.S.</span><input type="text" name="" ></span>
-                    <span><span>Enf. Comunes<input type="text" name="" ></span>
+                    <span><span>Metabolicos</span><input type="text" name="" ></span><br>
+                    <span><span>Alergicos</span><input type="text" name="" ></span><br>
+                    <span><span>Neuropsiquiatricos</span><input type="text" name="" ></span><br>
+                    <span><span>Reumaticos</span><input type="text" name="" ></span><br>
+                    <span><span>E.T.S.</span><input type="text" name="" ></span><br>
+                    <span><span>Enf. Comunes</span><input type="text" name="" ></span>
                 </div></span>
             </div>
 
+            <h1>Historia Laboral</h1>
+            
             <div class="add-patient-historia-laboral">
-                <h1>Historia Laboral</h1>
+                
                 <textarea id="Historia_laboral"></textarea>
             </div>
 
