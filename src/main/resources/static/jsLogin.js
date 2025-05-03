@@ -6,7 +6,7 @@ const pass = document.getElementById('input_pass');
 
 const errorMessage = document.getElementById('error_message');
 
-document.getElementById('verify_btn').addEventListener('click', () => {
+function validateCredentials() {
     
     if(user.value === "shoro" && pass.value === "1234") {
         window.location.href = "main.html";
@@ -33,7 +33,7 @@ document.getElementById('verify_btn').addEventListener('click', () => {
 
     }
     
-});
+};
 
 user.addEventListener("focus", function() {
     userCtn.style.backgroundColor = "white";
@@ -48,6 +48,19 @@ pass.addEventListener("focus", function() {
     passCtn.style.backgroundColor = "white";
     pass.style.backgroundColor = "white";
 });
+
+
+document.getElementById("verify_btn").addEventListener("click", function() {
+    validateCredentials();
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        validateCredentials();
+    }
+});
+
 
 // ERASE INPUT VALUE BUTTON
 

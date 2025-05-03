@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
         inputs[0].value = patientDataObject.empresa;
         inputs[1].value = patientDataObject.nombre;
     }
-    
+
 });

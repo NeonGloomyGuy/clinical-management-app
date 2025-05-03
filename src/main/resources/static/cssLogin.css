@@ -27,10 +27,10 @@ body {
 }
 
 .login-ctn > img {
-    width: 38%;
-    height: 24%;
+    width: 105px;
+    height: 100px;
     background-color: white;
-    margin-bottom: 10%;
+    margin-bottom: 8.4%;
     border-radius: 100%;
     padding: 20px;
 }
@@ -87,6 +87,12 @@ body {
     border: none;
     outline: none;
     font-size: 0.7rem;
+}
+
+@media (min-width: 1400px) {
+    .login-ctn div span  {
+       font-size: 0.8rem;
+    }
 }
 
 input:-webkit-autofill {

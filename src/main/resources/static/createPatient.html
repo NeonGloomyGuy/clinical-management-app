@@ -67,8 +67,8 @@
     <div class="add-patient-principal-info">
 
       <div>
-        <span><span>Empresa</span><input type="text" id="empresa" class="dato" readonly></span><br>
-        <span><span>Nombre</span><input type="text" id="nombre" class="dato" readonly></span><br>
+        <span><span>Empresa</span><input type="text" id="empresa" class="dato"></span><br>
+        <span><span>Nombre</span><input type="text" id="nombre" class="dato"></span><br>
         <span><span>Estado Civil</span><input type="text" id="estado_civil" class="dato"></span><br>
         <span><span>Fecha de<br>Nacimiento</span><input type="text" id="fecha_de_nacimiento" class="dato"></span><br>
         <span><span>Domicilio</span><input type="text" id="domicilio" class="dato"></span><br>
@@ -138,7 +138,6 @@
     <div class="add-patient-historia-laboral">
 
       <textarea id="Historia_laboral"></textarea>
-    
     </div>
 
     <!-- <div class="add-patient-antecedentes-personales2">
@@ -298,13 +297,24 @@
       </div>
     </div> -->
 
-    
+    <button id="savePatient">Crear Paciente</button>
 
   </div>
 
 </div>
 
-<script src="jsLookPatientInfo.js"></script>
+<script src="jsCreatePatient.js"></script>
+
+<!-- sSCRIPT DE-->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  new TomSelect('#myDropdown', {
+      searchField: false, // Sin búsqueda
+      create: false,      // No permite crear nuevas opciones
+  });
+});
+</script>
 
 </body>
 </html>

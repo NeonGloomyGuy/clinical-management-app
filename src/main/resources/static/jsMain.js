@@ -1,23 +1,6 @@
 /* DISPLAY CHANGE  */
 const bdContainer = document.querySelector('.bd-container');
 
-const addPatientButton = document.querySelector('.add-patient-btn');
-
-const expedientesContainer = document.querySelector('.add-patient-container');
-
-addPatientButton.addEventListener('click', () => {
-
-    if(expedientesContainer.style.display === 'flex'){
-        bdContainer.style.display = 'block';
-        expedientesContainer.style.display = 'none';
-    } else {
-
-        bdContainer.style.display = 'none';
-        expedientesContainer.style.display = 'flex';
-    }
-
-});
-
 /* BD - SEARCH - FOCUS INPUT FROM BUTTON*/
 
 const searchButton = document.getElementById('search_button');
@@ -138,7 +121,7 @@ iconPlusAllergie.forEach(icon => {
 
 const tableBody = document.getElementById('table_body');
 
-document.getElementById('reload_table_btn').addEventListener('click', () => {
+function fetchPatients() {
 
     fetch("http://localhost:8080/clinic-app/management/api/v1/patients/allPatients", {
         method: 'GET',
@@ -186,8 +169,8 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
 
                         tableBody.appendChild(row);
 
-
                 });
+                
             } else {
                 console.error("La respuesta no es un array.");
             }
@@ -196,6 +179,14 @@ document.getElementById('reload_table_btn').addEventListener('click', () => {
             console.error("Error:", error);
         });
 
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchPatients();
+});
+
+document.getElementById('reload_table_btn').addEventListener('click', () => {
+    fetchPatients();
 });
 
 
@@ -220,6 +211,7 @@ tableBody.addEventListener('click', (event) => {
 
     }
 });
+
 
 /* BD - TABLE - LOOK PATIENT INFO */
 
@@ -274,6 +266,58 @@ lookPatientBtn.addEventListener('click', () => {
 });
 
 
+/* BD - TABLE - EDIT PATIENT INFO */
+
+const editPatientBtn = document.getElementById('edit_patient_btn');
+
+editPatientBtn.addEventListener('click', () => {
+
+    var selectedRow = document.querySelector('.selected');
+    var cells = selectedRow.querySelectorAll('td');
+
+    if(selectedRow) {
+
+    var patientName = cells[0].textContent;
+    const encodedPatientName = encodeURIComponent(patientName);
+    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatient?name=${encodedPatientName}`;
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("No se pudieron obtener los datos de los pacientes");
+            }
+            return response.json();  // Aquí convertimos la respuesta a un array de pacientes
+        })
+        .then((data) => {
+
+            const patientData = data;
+            localStorage.setItem("datosPaciente", JSON.stringify(patientData));
+
+            // Asegúrate de que los datos sean un array
+            if (Array.isArray(data)) {
+
+                window.location.href = "editPatientInfo.html";
+
+            } else {
+                console.error("La respuesta no es un array.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+
+    } else {
+        console.log("No hay paciente seleccionado para mirar.");
+    }
+
+});
+
+
 /* BD - TABLE - DELETE PATIENT */
 
 const deleteExpedienteButton = document.getElementById('delete_expediente_btn');
@@ -312,44 +356,90 @@ deleteExpedienteButton.addEventListener('click', () => {
 });
 
 
-/* BD - EXPEDIENTE - GET DATA FROM NEW PATIENT
-     //var allergiesContainers = document.getElementById('selected_allergies').querySelectorAll('span');
-     //var numOfAllergies = allergiesContainers.length;
+/* BD - EXPEDIENTE - GO TO CREATE PATIENT */
 
-     //var allergies = [];
+const addPatientButton = document.querySelector('.add-patient-btn');
 
-     //for(var i = 0; i < numOfAllergies; i++) {
-       // allergies.push(allergiesContainers[i].textContent.trim());
-     //}
-document.getElementById('savePatient').addEventListener('click', () => {
-    var jsonData = JSON.stringify({
-        nombre: document.getElementById('nombre').value,
-        edad: parseInt(document.getElementById('edad').value),
-        tipo_sanguineo: document.getElementById('tipo_sanguineo').value,
-        peso: parseFloat(document.getElementById('peso').value),
-        estatura: parseFloat(document.getElementById('estatura').value),
+addPatientButton.addEventListener('click', () => {
+    window.location.href = "createPatient.html";
+});
 
-        //alergias: allergies
-    });
-     fetch("http://localhost:8080/demo/api/v1/savePatient", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: jsonData
-        })
+/* BD - EXPEDIENTE - SEARCH PATIENT IN SEARCH-BAR */
+
+const searchInput = document.getElementById('search_bar');
+
+function searchPatient() {
+
+    var searchValue = searchInput.value;
+
+    if(searchValue) {
+
+    const encodedSearchedName = encodeURIComponent(searchValue);
+    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatients?name=${encodedSearchedName}`;
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
         .then((response) => {
             if (!response.ok) {
-                throw new Error("No se enviaron los datos");
+                throw new Error("No se pudieron obtener los datos de los pacientes");
             }
-            return response.json();
+            return response.json();  // Aquí convertimos la respuesta a un array de pacientes
         })
         .then((data) => {
-            console.log("Datos enviados con éxito:", data);
+
+            if (Array.isArray(data)) {
+
+                tableBody.innerHTML = '';
+
+                data.forEach((patient) => {
+                    console.log(`Paciente: ${patient.nombre}`);
+
+                        const row = document.createElement('tr');
+
+                        const nameCell = document.createElement('td');
+                        const edadCell = document.createElement('td');
+                        const sexoCell = document.createElement('td');
+                        const fechaCell = document.createElement('td');
+                        const empresaCell = document.createElement('td');
+
+                        nameCell.textContent = patient.nombre;
+                        edadCell.textContent = patient.edad;
+                        sexoCell.textContent = patient.sexo;
+                        fechaCell.textContent = patient.fecha;
+                        empresaCell.textContent = patient.empresa;
+
+                        row.appendChild(nameCell);
+                        row.appendChild(edadCell);
+                        row.appendChild(sexoCell);
+                        row.appendChild(fechaCell);
+                        row.appendChild(empresaCell);
+
+                        tableBody.appendChild(row);
+
+                });
+
+            } else {
+                console.error("La respuesta no es un array.");
+            }
         })
         .catch((error) => {
             console.error("Error:", error);
         });
-});
 
-*/
+    } else {
+        console.log("No hay paciente seleccionado para mirar.");
+    }
+
+};
+
+document.getElementById('search_button').addEventListener('click', searchPatient);
+    
+searchInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        searchPatient();
+    }
+});
