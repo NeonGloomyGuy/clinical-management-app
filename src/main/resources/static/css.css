@@ -98,9 +98,17 @@ body {
     display: none;
     position: absolute;
     top: -0.2%;
-    left: 1.2%;
+    right: 0.5%;
     overflow: hidden;
     z-index: 100;
+}
+
+.header-menu div {
+    padding: 4px 10px;
+}
+
+.header-menu div:hover {
+    background-color: lightgray;
 }
 
 .allergies-manager-button {
@@ -130,11 +138,13 @@ body {
 .allergies-manager-search-ctn {
     width: 100%;
     height: 13%;
-    background-color: rgb(38, 39, 41);
+    background-color: #F7FAF7;
     box-sizing: border-box;
+    border-bottom: 1px solid black;
     padding: 0 3% 0 3.5%;
     display: flex;
     align-items: center;
+    color: black;
 }
 
 .allergies-manager-search-ctn img {
@@ -147,10 +157,10 @@ body {
 .allergies-manager-search-ctn input {
     width: 88%;
     height: 50%;
-    background-color: rgb(38, 39, 41);
+    background-color: #F7FAF7;
     box-sizing: border-box;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid black;
     outline: none;
     padding: 0;
     font-size: 0.9em;
@@ -158,15 +168,17 @@ body {
 
 #allergies_manager div {
     width: 100%;
+    background-color: #F7FAF7;
     box-sizing: border-box;
     padding: 5px 3% 5px 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: black;
 }
 
 #allergies_manager div:hover {
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgb(0,0,0,0.1);
     cursor: default;
 }
 
@@ -182,11 +194,12 @@ body {
 
 .add-allergie-in-manager-button {
     width: 100%;
-    background-color: rgb(43,45,48);
+    background-color: #F7FAF7;
     box-sizing: border-box;
     padding: 5px 3% 5px 3%;
     display: inline-block;
     z-index: 10;
+    color: black;
 }
 
 .add-allergie-in-manager-button:hover {
@@ -931,5 +944,5 @@ body {
 
 .tooltip:hover::after {
     opacity: 1;
-    transition: opacity 0.2s ease-in 0.8s; 
+    transition: opacity 0.2s ease-in 0.6s;
 }

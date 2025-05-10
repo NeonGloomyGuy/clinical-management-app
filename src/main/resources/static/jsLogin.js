@@ -40,6 +40,7 @@ user.addEventListener("focus", function() {
     user.style.backgroundColor = "white";
     passCtn.style.backgroundColor = "white";
     pass.style.backgroundColor = "white";
+    errorMessage.style.display = "none";
 });
 
 pass.addEventListener("focus", function() {
@@ -47,6 +48,7 @@ pass.addEventListener("focus", function() {
     user.style.backgroundColor = "white";
     passCtn.style.backgroundColor = "white";
     pass.style.backgroundColor = "white";
+    errorMessage.style.display = "none";
 });
 
 

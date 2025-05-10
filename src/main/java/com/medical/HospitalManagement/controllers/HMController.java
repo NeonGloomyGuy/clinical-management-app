@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -36,9 +37,9 @@ public class HMController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPatient);
     }
 
-    @GetMapping("/searchPatient")
+    @GetMapping("/searchPatients")
     public ResponseEntity<List<PatientDto>> searchPatientsByName(@RequestParam String name) {
-        log.info("Request received: GET search patient by name: {}", name);
+        log.info("Request received: GET search patients by name: {}", name);
         List<PatientDto> results = patientService.searchPatients(name);
         return ResponseEntity.ok(results);
     }
@@ -55,4 +56,24 @@ public class HMController {
                     .body("No patient found with name '" + name + "'.");
         }
     }
+
+    @GetMapping("/patientInfo")
+    public ResponseEntity<List<PatientDto>> searchPatient(@RequestParam String name) {
+        log.info("Request received: GET search patient by name: {}", name);
+        List<PatientDto> results = patientService.searchPatientInfo(name);
+        return ResponseEntity.ok(results);
+    }
+
+    @GetMapping("/fillForm")
+    public ResponseEntity<String> fillPatientForm(@RequestParam String name) throws IOException {
+        log.info("Request received: POST fill template for patient info");
+        boolean isFormCreated = patientService.fillExcelTemplate(name);
+        if (isFormCreated) {
+            return ResponseEntity.ok("Record for patient with name '" + name + "' successfully created.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No patient found with name '" + name + "'.");
+        }
+    }
+
 }

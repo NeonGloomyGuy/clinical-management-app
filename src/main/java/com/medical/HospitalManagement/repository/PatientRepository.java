@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface PatientRepository extends MongoRepository<PatientDto, String> {
     List<PatientDto> findByNombre(String patientName);
+    List<PatientDto> findByNombreContainingIgnoreCase(String patientName);
 
 }

@@ -226,7 +226,7 @@ lookPatientBtn.addEventListener('click', () => {
 
     var patientName = cells[0].textContent;
     const encodedPatientName = encodeURIComponent(patientName);
-    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatient?name=${encodedPatientName}`;
+    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/patientInfo?name=${encodedPatientName}`;
 
     fetch(url, {
         method: 'GET',
@@ -279,7 +279,7 @@ editPatientBtn.addEventListener('click', () => {
 
     var patientName = cells[0].textContent;
     const encodedPatientName = encodeURIComponent(patientName);
-    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatient?name=${encodedPatientName}`;
+    const url = `http://localhost:8080/clinic-app/management/api/v1/patients/searchPatients?name=${encodedPatientName}`;
 
     fetch(url, {
         method: 'GET',
@@ -439,7 +439,5 @@ function searchPatient() {
 document.getElementById('search_button').addEventListener('click', searchPatient);
     
 searchInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
         searchPatient();
-    }
 });
